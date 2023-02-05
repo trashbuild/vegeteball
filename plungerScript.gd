@@ -12,10 +12,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	# var velocity = Vector2.ZERO
+# func _physics_process(delta):
+# 	# var velocity = Vector2.ZERO
 
-	pass
+# 	pass
 
 func _integrate_forces(state):
 	var vel = state.get_linear_velocity ()

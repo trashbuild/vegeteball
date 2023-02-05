@@ -1,5 +1,4 @@
-extends Node2D
-signal hit
+extends RigidBody2D
 
 
 # Declare member variables here. Examples:
@@ -13,11 +12,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-# func _process(delta):
-	# pass
-
-
-func _on_RigidBody2D_body_entered(body):
-	emit_signal("hit")
-	print_debug("pang " + body.name)
-	pass # Replace with function body.
+#func _process(delta):
+#	pass
