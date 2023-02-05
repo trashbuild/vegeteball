@@ -1,25 +1,21 @@
-extends Node2D
-signal hit
+extends Sprite
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+export var score = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+func _on_add_score(points):
+	score += points
+	print_debug(score)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-# func _process(delta):
-	# pass
-
-func _integrate_forces(state):
-	pass
-
-func _on_RigidBody2D_body_entered(body):
-	emit_signal("hit")
-	print_debug("pang " + body.name)
-	pass # Replace with function body.
+#func _process(delta):
+#	pass

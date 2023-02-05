@@ -1,6 +1,6 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=36 format=2]
 
-[ext_resource path="res://octogon-bumper2-update.png" type="Texture" id=1]
+[ext_resource path="res://Octogon-bumper.tscn" type="PackedScene" id=1]
 [ext_resource path="res://parsnip1.png" type="Texture" id=2]
 [ext_resource path="res://rutabaga1.png" type="Texture" id=3]
 [ext_resource path="res://carrot1.png" type="Texture" id=4]
@@ -17,6 +17,9 @@
 [ext_resource path="res://background1-tilable.png" type="Texture" id=15]
 [ext_resource path="res://gutbumper-l-ani-sheet-update.png" type="Texture" id=16]
 [ext_resource path="res://bumperScript.gd" type="Script" id=17]
+[ext_resource path="res://Little-bumper.tscn" type="PackedScene" id=18]
+[ext_resource path="res://score_text_banner.png" type="Texture" id=19]
+[ext_resource path="res://Scoreboard.gd" type="Script" id=20]
 
 [sub_resource type="PhysicsMaterial" id=23]
 friction = 0.5
@@ -25,33 +28,6 @@ bounce = 0.31
 [sub_resource type="PhysicsMaterial" id=22]
 friction = 0.61
 bounce = 0.41
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 136, 136 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 1 )
-region = Rect2( 136, 0, 136, 136 )
-
-[sub_resource type="SpriteFrames" id=20]
-animations = [ {
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 18 ) ],
-"loop": false,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="Shader" id=25]
-code = "shader_type canvas_item;
-
-uniform  float brightness;
-
-"
-
-[sub_resource type="ShaderMaterial" id=26]
-shader = SubResource( 25 )
-shader_param/brightness = null
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 16 )
@@ -116,9 +92,13 @@ position = Vector2( 368, 161 )
 current = true
 zoom = Vector2( 1.5, 1.5 )
 process_mode = 0
-__meta__ = {
-"_edit_group_": true
-}
+
+[node name="Scoreboard" type="Sprite" parent="Camera2D"]
+position = Vector2( -495.34, -338.552 )
+scale = Vector2( 1.92817, 1.92817 )
+z_index = 10
+texture = ExtResource( 19 )
+script = ExtResource( 20 )
 
 [node name="Background1-tilable" type="Sprite" parent="Camera2D"]
 scale = Vector2( 1.5, 1.5 )
@@ -154,59 +134,25 @@ polygon = PoolVector2Array( 21.9996, 165, 116, 182, 119, 289, 201.999, 405.001, 
 physics_material_override = SubResource( 22 )
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
-polygon = PoolVector2Array( 951, 601, 953, 275, 889, -23, 687, -133, 219, -174, 65, -84, -23, 150, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
+polygon = PoolVector2Array( 951, 601, 953, 275, 908, 99, 802, 36, 569, 7, 254, 7, 93, 50, -1, 175, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
-polygon = PoolVector2Array( 951, 490, 1016, 473, 1065, 408, 1094, 341, 1022, 332, 957, 426, 952, 414, 953, 275, 889, -23, 687, -133, 219, -174, 65, -84, -23, 150, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
+polygon = PoolVector2Array( 951, 490, 952, 414, 953, 275, 910, 100, 799, 38, 576, 5, 254, 7, 92, 44, -2, 177, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
 
 [node name="Bumpers" type="Node2D" parent="."]
 
-[node name="Octogon-bumper1" type="Node2D" parent="Bumpers"]
-position = Vector2( 451, 285 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Octogon-bumper1" parent="Bumpers" instance=ExtResource( 1 )]
+position = Vector2( 454, 310 )
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Bumpers/Octogon-bumper1"]
-mode = 3
-continuous_cd = 2
-contacts_reported = 10
-contact_monitor = true
-can_sleep = false
-script = ExtResource( 17 )
+[node name="Octogon-bumper2" parent="Bumpers" instance=ExtResource( 1 )]
+position = Vector2( 799, 196 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Octogon-bumper1/RigidBody2D"]
-frames = SubResource( 20 )
-frame = 2
-playing = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Octogon-bumper1/RigidBody2D"]
-polygon = PoolVector2Array( 26, -64, 64, -26, 65, 26, 26, 65, -26, 64, -64, 26, -64, -26, -26, -65 )
-
-[node name="Octogon-bumper2" type="Node2D" parent="Bumpers"]
-position = Vector2( 787, 191 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Bumpers/Octogon-bumper2"]
-mode = 3
-contacts_reported = 10
-contact_monitor = true
-can_sleep = false
-script = ExtResource( 17 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Octogon-bumper2/RigidBody2D"]
-material = SubResource( 26 )
-frames = SubResource( 20 )
-frame = 2
-playing = true
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Octogon-bumper2/RigidBody2D"]
-polygon = PoolVector2Array( 26, -64, 64, -26, 65, 26, 26, 65, -26, 64, -64, 26, -64, -26, -26, -65 )
+[node name="Octogon-bumper3" parent="Bumpers" instance=ExtResource( 1 )]
+position = Vector2( 209, 134 )
 
 [node name="Gut-bumper_L" type="Node2D" parent="Bumpers"]
-position = Vector2( 313, 420 )
+position = Vector2( 325, 446 )
+rotation = -0.261799
 __meta__ = {
 "_edit_group_": true
 }
@@ -228,17 +174,48 @@ playing = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Gut-bumper_L/RigidBody2D"]
 polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54, 27, 49, -13, -57 )
 
+[node name="Gut-bumper_L2" type="Node2D" parent="Bumpers"]
+position = Vector2( 104, 158 )
+rotation = 0.787143
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Bumpers/Gut-bumper_L2"]
+mode = 3
+continuous_cd = 2
+contacts_reported = 10
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 17 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
+position = Vector2( 0, -1 )
+frames = SubResource( 17 )
+frame = 3
+playing = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
+polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54, 27, 49, -13, -57 )
+
+[node name="Little-bumper" parent="Bumpers" instance=ExtResource( 18 )]
+position = Vector2( 372, 45 )
+
+[node name="Little-bumper2" parent="Bumpers" instance=ExtResource( 18 )]
+position = Vector2( 420, 63 )
+
+[node name="Little-bumper3" parent="Bumpers" instance=ExtResource( 18 )]
+position = Vector2( 469, 59 )
+
 [node name="Gut-bumper_R" type="Node2D" parent="Bumpers"]
-position = Vector2( 602, 420 )
+position = Vector2( 589, 446 )
+rotation = 0.261799
 scale = Vector2( -1, 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Bumpers/Gut-bumper_R"]
-position = Vector2( 289, 0 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
 mode = 3
 contacts_reported = 10
 contact_monitor = true
@@ -246,17 +223,11 @@ can_sleep = false
 script = ExtResource( 17 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Gut-bumper_R/RigidBody2D"]
-position = Vector2( 289, 0 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
 frames = SubResource( 17 )
 frame = 3
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Gut-bumper_R/RigidBody2D"]
-position = Vector2( 289, 0 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
 polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54, 27, 49, -13, -57 )
 
 [node name="Plunger" type="Node2D" parent="."]
@@ -295,6 +266,7 @@ __meta__ = {
 position = Vector2( 0, 100 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 13 )
+frame = 1
 speed_scale = 1.5
 playing = true
 
@@ -312,6 +284,9 @@ position = Vector2( 223, 493 )
 [node name="Flipper_L_1" type="Node2D" parent="Flippers"]
 position = Vector2( 128, 12 )
 rotation = 0.523599
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite2" type="Sprite" parent="Flippers/Flipper_L_1"]
 position = Vector2( 30.2827, 27.8021 )
@@ -319,6 +294,7 @@ texture = ExtResource( 14 )
 
 [node name="head" type="Node2D" parent="Flippers/Flipper_L_1"]
 script = ExtResource( 10 )
+travelLength = 50
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Flippers/Flipper_L_1/head"]
 position = Vector2( 31, 0.999969 )
@@ -335,6 +311,9 @@ polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 1
 position = Vector2( 344, 11 )
 rotation = -0.523599
 scale = Vector2( -1, 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="flipperBG" type="Sprite" parent="Flippers/Flipper_R_1"]
 position = Vector2( 30.2828, 27.8021 )
@@ -342,6 +321,7 @@ texture = ExtResource( 14 )
 
 [node name="head" type="Node2D" parent="Flippers/Flipper_R_1"]
 script = ExtResource( 13 )
+travelLength = 50
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Flippers/Flipper_R_1/head"]
 position = Vector2( 31, 0.999969 )
@@ -357,6 +337,9 @@ polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 1
 [node name="Flipper_L_2" type="Node2D" parent="Flippers"]
 position = Vector2( -159, -266 )
 rotation = 1.54462
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="flipperBG" type="Sprite" parent="Flippers/Flipper_L_2"]
 position = Vector2( 30.2828, 27.8021 )
@@ -364,6 +347,7 @@ texture = ExtResource( 14 )
 
 [node name="head" type="Node2D" parent="Flippers/Flipper_L_2"]
 script = ExtResource( 10 )
+travelLength = 50
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Flippers/Flipper_L_2/head"]
 position = Vector2( 31, 0.999969 )
@@ -379,7 +363,7 @@ polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 1
 [node name="veggies" type="Node2D" parent="."]
 
 [node name="Rutabaga" type="Node2D" parent="veggies"]
-position = Vector2( 521, 147 )
+position = Vector2( 915, 274 )
 scale = Vector2( 1.3, 1.3 )
 script = ExtResource( 5 )
 __meta__ = {
@@ -424,7 +408,7 @@ polygon = PoolVector2Array( 9, -5, 9, 4, 5, 8, -2, 8, -10, 18, -13, 18, -23, 28,
 texture = ExtResource( 2 )
 
 [node name="Carrot" type="Node2D" parent="veggies"]
-position = Vector2( 434, 108 )
+position = Vector2( 469, 176 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -453,9 +437,9 @@ __meta__ = {
 position = Vector2( 18.5, 48.5 )
 shape = SubResource( 21 )
 
-[connection signal="body_entered" from="Bumpers/Octogon-bumper1/RigidBody2D" to="Bumpers/Octogon-bumper1/RigidBody2D" method="_on_RigidBody2D_body_entered"]
-[connection signal="body_entered" from="Bumpers/Octogon-bumper2/RigidBody2D" to="Bumpers/Octogon-bumper2/RigidBody2D" method="_on_RigidBody2D_body_entered"]
 [connection signal="body_entered" from="Bumpers/Gut-bumper_L/RigidBody2D" to="Bumpers/Gut-bumper_L/RigidBody2D" method="_on_RigidBody2D_body_entered"]
+[connection signal="body_entered" from="Bumpers/Gut-bumper_L2/RigidBody2D" to="Bumpers/Gut-bumper_L2/RigidBody2D" method="_on_RigidBody2D_body_entered"]
 [connection signal="body_entered" from="Bumpers/Gut-bumper_R/RigidBody2D" to="Bumpers/Gut-bumper_R/RigidBody2D" method="_on_RigidBody2D_body_entered"]
-[connection signal="hit" from="veggies/Rutabaga" to="Bumpers/Octogon-bumper1" method="_on_Rutabaga_hit"]
 [connection signal="hit" from="veggies/Rutabaga" to="Bumpers/Gut-bumper_R" method="_on_Rutabaga_hit"]
+
+[editable path="Bumpers/Octogon-bumper1"]
