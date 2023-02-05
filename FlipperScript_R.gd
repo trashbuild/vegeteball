@@ -17,8 +17,8 @@ func _ready():
 	flipSpeed *= 360
 	startRotation = get_rotation_degrees()
 	endRotation = startRotation - travelLength
-	print_debug(startRotation)
-	print_debug(endRotation)
+	# print_debug(startRotation)
+	# print_debug(endRotation)
 
 
 	pass # Replace with function body.

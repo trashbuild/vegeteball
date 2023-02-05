@@ -1,5 +1,4 @@
 extends Node2D
-signal hit
 
 
 # Declare member variables here. Examples:
@@ -9,14 +8,10 @@ signal hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimatedSprite.frame = 0
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-# func _process(delta):
-	# pass
-
-
-func _on_RigidBody2D_body_entered(body:Node):
-	
-	pass # Replace with function body.
+#func _process(delta):
+#	pass
