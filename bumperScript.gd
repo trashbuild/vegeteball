@@ -41,6 +41,7 @@ func _on_RigidBody2D_body_entered(body:Node):
 	scoreboard._on_add_score(points)
 	# print_debug("10 points!")
 	
+	
 
 	body.set_deferred("linear_velocity", Vector2(-500,0))
 	# body._integrate_forces()

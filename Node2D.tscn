@@ -1,10 +1,9 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Octogon-bumper.tscn" type="PackedScene" id=1]
 [ext_resource path="res://parsnip1.png" type="Texture" id=2]
 [ext_resource path="res://rutabaga1.png" type="Texture" id=3]
 [ext_resource path="res://carrot1.png" type="Texture" id=4]
-[ext_resource path="res://ballController.gd" type="Script" id=5]
 [ext_resource path="res://plungerScript.gd" type="Script" id=6]
 [ext_resource path="res://icon.png" type="Texture" id=7]
 [ext_resource path="res://gutbumper-l.png" type="Texture" id=8]
@@ -141,6 +140,7 @@ bounce = 0.1
 extents = Vector2( 414.5, 66.5 )
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( 0, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 368, 161 )
@@ -149,7 +149,7 @@ zoom = Vector2( 1.5, 1.5 )
 process_mode = 0
 
 [node name="Scoreboard" type="Sprite" parent="Camera2D"]
-position = Vector2( -495, -339 )
+position = Vector2( -497, -367 )
 scale = Vector2( 1.92817, 1.92817 )
 z_index = 10
 texture = ExtResource( 19 )
@@ -259,12 +259,12 @@ polygon = PoolVector2Array( 21.9996, 165, 116, 182, 119, 289, 201.999, 405.001, 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 physics_material_override = SubResource( 22 )
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
-texture = ExtResource( 23 )
-polygon = PoolVector2Array( 951, 601, 953, 275, 908, 99, 802, 36, 569, 7, 254, 7, 93, 50, -1, 175, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
 polygon = PoolVector2Array( 951, 490, 952, 414, 953, 275, 910, 100, 799, 38, 576, 5, 254, 7, 92, 44, -2, 177, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
+texture = ExtResource( 23 )
+polygon = PoolVector2Array( 951, 601, 953, 275, 908, 99, 802, 36, 618, -72, 254, 7, 93, 50, -1, 175, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
 
 [node name="Bumpers" type="Node2D" parent="."]
 
@@ -275,7 +275,7 @@ position = Vector2( 454, 310 )
 position = Vector2( 799, 196 )
 
 [node name="Octogon-bumper3" parent="Bumpers" instance=ExtResource( 1 )]
-position = Vector2( 188, 312 )
+position = Vector2( 201, 304 )
 
 [node name="Gut-bumper_L" type="Node2D" parent="Bumpers"]
 position = Vector2( 325, 446 )
@@ -393,6 +393,7 @@ __meta__ = {
 position = Vector2( 0, 100 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 13 )
+frame = 3
 speed_scale = 1.5
 playing = true
 
@@ -522,7 +523,7 @@ shape = SubResource( 5 )
 
 [node name="Parsnip" type="Node2D" parent="veggies"]
 position = Vector2( 904, 355 )
-script = ExtResource( 5 )
+script = ExtResource( 25 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -539,7 +540,7 @@ texture = ExtResource( 2 )
 
 [node name="Carrot" type="Node2D" parent="veggies"]
 position = Vector2( 469, 176 )
-script = ExtResource( 5 )
+script = ExtResource( 25 )
 __meta__ = {
 "_edit_group_": true
 }
