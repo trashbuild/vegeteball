@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Octogon-bumper.tscn" type="PackedScene" id=1]
 [ext_resource path="res://parsnip1.png" type="Texture" id=2]
@@ -20,6 +20,61 @@
 [ext_resource path="res://Little-bumper.tscn" type="PackedScene" id=18]
 [ext_resource path="res://score_text_banner.png" type="Texture" id=19]
 [ext_resource path="res://Scoreboard.gd" type="Script" id=20]
+[ext_resource path="res://digits-spritesheet2.png" type="Texture" id=21]
+[ext_resource path="res://background-square.png" type="Texture" id=22]
+[ext_resource path="res://forground-working.png" type="Texture" id=23]
+[ext_resource path="res://vegetable_text_banner.png" type="Texture" id=24]
+[ext_resource path="res://ballController.gd" type="Script" id=25]
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 21 )
+region = Rect2( 128, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 21 )
+region = Rect2( 256, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 21 )
+region = Rect2( 384, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 21 )
+region = Rect2( 512, 0, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 21 )
+region = Rect2( 128, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 21 )
+region = Rect2( 256, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 21 )
+region = Rect2( 384, 128, 128, 128 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 21 )
+region = Rect2( 512, 128, 128, 128 )
+
+[sub_resource type="SpriteFrames" id=35]
+animations = [ {
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Theme" id=36]
 
 [sub_resource type="PhysicsMaterial" id=23]
 friction = 0.5
@@ -94,15 +149,84 @@ zoom = Vector2( 1.5, 1.5 )
 process_mode = 0
 
 [node name="Scoreboard" type="Sprite" parent="Camera2D"]
-position = Vector2( -495.34, -338.552 )
+position = Vector2( -495, -339 )
 scale = Vector2( 1.92817, 1.92817 )
 z_index = 10
 texture = ExtResource( 19 )
 script = ExtResource( 20 )
 
+[node name="ones" type="AnimatedSprite" parent="Camera2D/Scoreboard"]
+visible = false
+position = Vector2( 214.043, 62.5215 )
+scale = Vector2( 0.456809, 0.456809 )
+frames = SubResource( 35 )
+
+[node name="tens" type="AnimatedSprite" parent="Camera2D/Scoreboard"]
+visible = false
+position = Vector2( 162.699, 62.5216 )
+scale = Vector2( 0.456809, 0.456809 )
+frames = SubResource( 35 )
+
+[node name="hundreds" type="AnimatedSprite" parent="Camera2D/Scoreboard"]
+visible = false
+position = Vector2( 111.355, 62.5215 )
+scale = Vector2( 0.456809, 0.456809 )
+frames = SubResource( 35 )
+
+[node name="thousands" type="AnimatedSprite" parent="Camera2D/Scoreboard"]
+visible = false
+position = Vector2( 59.4927, 62.5216 )
+scale = Vector2( 0.456809, 0.456809 )
+frames = SubResource( 35 )
+
+[node name="tenthousands" type="AnimatedSprite" parent="Camera2D/Scoreboard"]
+visible = false
+position = Vector2( 10.2231, 62.5215 )
+scale = Vector2( 0.456809, 0.456809 )
+frames = SubResource( 35 )
+
+[node name="hundredthousands" type="AnimatedSprite" parent="Camera2D/Scoreboard"]
+visible = false
+position = Vector2( -40.6023, 62.5216 )
+scale = Vector2( 0.456809, 0.456809 )
+frames = SubResource( 35 )
+
+[node name="millions" type="AnimatedSprite" parent="Camera2D/Scoreboard"]
+visible = false
+position = Vector2( -89.8719, 62.5215 )
+scale = Vector2( 0.456809, 0.456809 )
+frames = SubResource( 35 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Scoreboard"]
+margin_left = 117.21
+margin_top = 9.85394
+margin_right = 252.21
+margin_bottom = 38.8539
+rect_scale = Vector2( 1.60161, 2.07874 )
+theme = SubResource( 36 )
+text = "321654762168546"
+
+[node name="veggies" type="Sprite" parent="Camera2D/Scoreboard"]
+position = Vector2( 386.377, -13.4843 )
+scale = Vector2( 0.264997, 0.264997 )
+z_index = 4
+texture = ExtResource( 24 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Scoreboard/veggies"]
+margin_left = 191.796
+margin_top = -15.6568
+margin_right = 434.796
+margin_bottom = 62.3432
+rect_scale = Vector2( 8.20212, 8.20212 )
+text = "so many"
+
 [node name="Background1-tilable" type="Sprite" parent="Camera2D"]
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 15 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D"]
+texture = ExtResource( 22 )
+polygon = PoolVector2Array( -787, -466, -796, 483, 842, 695, 1171, -490, -787, -587 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 126, 220 )
@@ -115,6 +239,7 @@ __meta__ = {
 polygon = PoolVector2Array( 79.7208, 155.583, 179.372, 59.2698, 236.671, 183.366, 221.723, 335.245, 296.462, 474.158, 401.095, 576.028, 585.449, 692.716, 117.09, 496.385, -99.651, 237.079 )
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+texture = ExtResource( 23 )
 polygon = PoolVector2Array( 79.7208, 155.583, 179.372, 59.2698, 236.671, 183.366, 221.723, 335.245, 298.953, 476.011, 401.095, 576.028, 585.449, 692.716, 117.09, 496.385, -99.651, 237.079 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -128,12 +253,14 @@ position = Vector2( 0, 1 )
 polygon = PoolVector2Array( 21.9996, 164, 116, 182, 119, 289, 201.999, 405.001, 188.999, 485, 272.999, 562.001, 332, 597, 42.9819, 597.868, 25.1091, 597.922, -11, 600, -3, 518, 2, 395, 6, 334 )
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
+texture = ExtResource( 23 )
 polygon = PoolVector2Array( 21.9996, 165, 116, 182, 119, 289, 201.999, 405.001, 188.999, 485, 272.999, 562.001, 332, 597, 42.9819, 597.868, 25.1091, 597.922, -11, 600, -3, 518, 2, 395, 6, 334 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 physics_material_override = SubResource( 22 )
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
+texture = ExtResource( 23 )
 polygon = PoolVector2Array( 951, 601, 953, 275, 908, 99, 802, 36, 569, 7, 254, 7, 93, 50, -1, 175, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
@@ -266,7 +393,7 @@ __meta__ = {
 position = Vector2( 0, 100 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 13 )
-frame = 1
+frame = 3
 speed_scale = 1.5
 playing = true
 
@@ -365,7 +492,7 @@ polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 1
 [node name="Rutabaga" type="Node2D" parent="veggies"]
 position = Vector2( 915, 274 )
 scale = Vector2( 1.3, 1.3 )
-script = ExtResource( 5 )
+script = ExtResource( 25 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -375,6 +502,9 @@ mass = 0.1
 can_sleep = false
 linear_damp = 0.0
 angular_damp = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="veggies/Rutabaga/RigidBody2D"]
+polygon = PoolVector2Array( -3.84613, -4.61539, -16.923, 3.07692, -16.923, 16.1538, 0.769287, 13.8461 )
 
 [node name="Rutabaga" type="Sprite" parent="veggies/Rutabaga/RigidBody2D"]
 texture = ExtResource( 3 )
@@ -393,27 +523,29 @@ shape = SubResource( 5 )
 
 [node name="Parsnip" type="Node2D" parent="veggies"]
 position = Vector2( 904, 355 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="veggies/Parsnip"]
+[node name="RigidBody2D" type="RigidBody2D" parent="veggies/Parsnip"]
 physics_material_override = SubResource( 24 )
 linear_damp = 0.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="veggies/Parsnip/RigidBody2D2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="veggies/Parsnip/RigidBody2D"]
 polygon = PoolVector2Array( 9, -5, 9, 4, 5, 8, -2, 8, -10, 18, -13, 18, -23, 28, -27, 30, -30, 28, -26, 22, -25, 19, -20, 15, -20, 11, -15, 5, -8, -2, -8, -8, -1, -12, 5, -12 )
 
-[node name="Parsnip1" type="Sprite" parent="veggies/Parsnip/RigidBody2D2"]
+[node name="Parsnip1" type="Sprite" parent="veggies/Parsnip/RigidBody2D"]
 texture = ExtResource( 2 )
 
 [node name="Carrot" type="Node2D" parent="veggies"]
 position = Vector2( 469, 176 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="veggies/Carrot"]
+[node name="RigidBody2D" type="RigidBody2D" parent="veggies/Carrot"]
 continuous_cd = 1
 contacts_reported = 10
 contact_monitor = true
@@ -421,10 +553,10 @@ can_sleep = false
 linear_damp = 0.0
 angular_damp = 0.0
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="veggies/Carrot/RigidBody2D2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="veggies/Carrot/RigidBody2D"]
 polygon = PoolVector2Array( 10, -3, 9, 5, 5, 9, 0, 13, -10, 20, -19, 26, -23, 28, -27, 30, -30, 28, -26, 22, -25, 19, -23, 14, -20, 11, -15, 5, -11, -2, -7, -7, -1, -10, 4, -9 )
 
-[node name="Carrot" type="Sprite" parent="veggies/Carrot/RigidBody2D2"]
+[node name="Carrot" type="Sprite" parent="veggies/Carrot/RigidBody2D"]
 texture = ExtResource( 4 )
 
 [node name="killzone" type="Area2D" parent="."]
@@ -440,6 +572,6 @@ shape = SubResource( 21 )
 [connection signal="body_entered" from="Bumpers/Gut-bumper_L/RigidBody2D" to="Bumpers/Gut-bumper_L/RigidBody2D" method="_on_RigidBody2D_body_entered"]
 [connection signal="body_entered" from="Bumpers/Gut-bumper_L2/RigidBody2D" to="Bumpers/Gut-bumper_L2/RigidBody2D" method="_on_RigidBody2D_body_entered"]
 [connection signal="body_entered" from="Bumpers/Gut-bumper_R/RigidBody2D" to="Bumpers/Gut-bumper_R/RigidBody2D" method="_on_RigidBody2D_body_entered"]
-[connection signal="hit" from="veggies/Rutabaga" to="Bumpers/Gut-bumper_R" method="_on_Rutabaga_hit"]
+[connection signal="body_entered" from="killzone" to="Camera2D/Scoreboard" method="_on_killzone_body_entered"]
 
 [editable path="Bumpers/Octogon-bumper1"]
