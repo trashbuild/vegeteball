@@ -32,6 +32,6 @@ func _process(_delta):
 	pass
 
 
-func _on_killzone_body_entered(body:Node):
+func _on_killzone_body_entered(_body:Node):
 	_veggie_update(-1)
 	pass # Replace with function body.

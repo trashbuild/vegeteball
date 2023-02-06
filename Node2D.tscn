@@ -275,7 +275,7 @@ position = Vector2( 454, 310 )
 position = Vector2( 799, 196 )
 
 [node name="Octogon-bumper3" parent="Bumpers" instance=ExtResource( 1 )]
-position = Vector2( 209, 134 )
+position = Vector2( 188, 312 )
 
 [node name="Gut-bumper_L" type="Node2D" parent="Bumpers"]
 position = Vector2( 325, 446 )
@@ -393,7 +393,6 @@ __meta__ = {
 position = Vector2( 0, 100 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 13 )
-frame = 3
 speed_scale = 1.5
 playing = true
 
