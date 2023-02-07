@@ -32,6 +32,10 @@ config/icon="res://icon.png"
 
 window/per_pixel_transparency/allowed=true
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/BitmapFontCutterPlus/plugin.cfg" )
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

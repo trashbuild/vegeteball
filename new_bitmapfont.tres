@@ -1,0 +1,10 @@
+[gd_resource type="BitmapFont" load_steps=2 format=2]
+
+[ext_resource path="res://addons/BitmapFontCutterPlus/cutter.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+GlyphSize = Vector2( 8, 8 )
+StartChar = 32
+Spacing = 1
+Monospaced = true

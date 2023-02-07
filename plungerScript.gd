@@ -24,7 +24,7 @@ func _integrate_forces(state):
 		# set_axis_velocity(Vector2(0,-2))
 		vel.y += 100;
 	if Input.is_action_just_released("plunger"):
-		vel.y -= 200;
+		vel.y -= 400;
 
 	state.set_linear_velocity (Vector2 (0, vel.y))
 	state.set_angular_velocity (0)
