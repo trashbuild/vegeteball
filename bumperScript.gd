@@ -1,20 +1,17 @@
 extends Node2D
-# signal add_score
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var bounciness = 250
+export var bounciness = 250 #this really aughtta connect to the physics material now that that's how bouncing is handled
 export var points = 10
-var scoreboard
+onready var scoreboard = get_node("/root/Node2D/Camera2D/Scoreboard")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite.frame = 0
-	scoreboard = get_node("/root/Node2D/Camera2D/Scoreboard")
-	# scoreboard.connect("add_score", scoreboard, "_on_add_score")
-	# $CollisionPolygon2D.connect("body_entered", self, "_on_RigidBody2D_body_entered")
+	
 	pass # Replace with function body.
 
 
@@ -23,31 +20,25 @@ func _ready():
 
 # 	pass
 
-
-
-# func _on_Rutabaga_hit():
-# 	$AnimatedSprite.frame = 0
-# 	pass # Replace with function body
-
-func _integrate_forces(state):
+# func _integrate_forces(state):
+	# thought I'd need to manually hold a rigidbody in place because Static won't register collisions,
+	# but it turns out we can just make it Kinematic
 	# state.set_linear_velocity (Vector2 (0, 0))
-	state.set_angular_velocity (0)
+	# state.set_angular_velocity (0)
+	# pass
 
 
 func _on_RigidBody2D_body_entered(body:Node):
 	# print_debug("ping " + body.name)
 	$AnimatedSprite.frame = 1
-	# emit_signal("add_score", points)
 	if body is RigidBody2D && body.name == "VeggieBody2D":
 		scoreboard._on_add_score(points)
+
+		# so this was all to deflect the vegeteball, but it turns out you can just turn up the bounciness on the physics material so it's unnecessary
+		# --------------------------------------------------------------------------------------------
 		# print_debug(body.linear_velocity.normalized())
 		# var incoming_velocity = body.linear_velocity.normalized()
 		# body.set_deferred("linear_velocity", incoming_velocity + (incoming_velocity * bounciness))
-
-	# print_debug("10 points!")
-
+		# --------------------------------------------------------------------------------------------
 	
-
-	# body.set_deferred("linear_velocity", Vector2(-500,0))
-	# body._integrate_forces()
 	pass # Replace with function body.

@@ -5,17 +5,17 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var killzone
-var scoreboard
-var rigidBody
+# var killzone
+# var scoreboard
+# var rigidBody
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	killzone = get_node("/root/Node2D/killzone")
-	scoreboard = get_node("/root/Node2D/Camera2D/Scoreboard")
-	scoreboard._veggie_update(1)
-	# rigidBody = $RigidBody2D
+	# killzone = get_node("/root/Node2D/killzone")
+	# scoreboard = get_node("/root/Node2D/Camera2D/Scoreboard")
+	# scoreboard._veggie_update(1)
+	# rigidBody = $VeggieBody2D
 
 	pass # Replace with function body.
 
@@ -36,3 +36,10 @@ func _integrate_forces(_state):
 	# emit_signal("hit")
 	# print_debug("pang " + body.name)
 	# pass # Replace with function body.
+
+
+# func _on_speedzone_body_entered(_body:Node, boost_multiplier):
+# 	var vel = rigidBody.get_linear_velocity
+# 	vel *= boost_multiplier
+# 	rigidBody.set_deferred("linear_velocity",vel)
+	pass # Replace with function body.
