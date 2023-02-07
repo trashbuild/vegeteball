@@ -38,10 +38,10 @@ func _on_RigidBody2D_body_entered(body:Node):
 	# print_debug("ping " + body.name)
 	$AnimatedSprite.frame = 1
 	# emit_signal("add_score", points)
-	scoreboard._on_add_score(points)
-	if body is RigidBody2D:
+	if body is RigidBody2D && body.name == "VeggieBody2D":
+		scoreboard._on_add_score(points)
 		# print_debug(body.linear_velocity.normalized())
-		var incoming_velocity = body.linear_velocity.normalized()
+		# var incoming_velocity = body.linear_velocity.normalized()
 		# body.set_deferred("linear_velocity", incoming_velocity + (incoming_velocity * bounciness))
 
 	# print_debug("10 points!")
