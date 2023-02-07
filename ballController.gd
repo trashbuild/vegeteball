@@ -15,7 +15,7 @@ func _ready():
 	killzone = get_node("/root/Node2D/killzone")
 	scoreboard = get_node("/root/Node2D/Camera2D/Scoreboard")
 	scoreboard._veggie_update(1)
-	rigidBody = $RigidBody2D
+	# rigidBody = $RigidBody2D
 
 	pass # Replace with function body.
 

@@ -5,17 +5,18 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
-var startRotation
+onready var startRotation = get_rotation_degrees()
 var endRotation
 export var travelLength = 90
 export var flipSpeed = 2
+export var mirrored = false
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	flipSpeed *= 360
-	startRotation = get_rotation_degrees()
+	# startRotation = get_rotation_degrees()
 	endRotation = startRotation - travelLength
 	# print_debug(startRotation)
 	# print_debug(endRotation)

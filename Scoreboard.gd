@@ -21,7 +21,7 @@ func _on_add_score(points):
 func _veggie_update(veg):
 	veggies += veg
 	print_debug(veggies)
-	$veggies/RichTextLabel.text = String(veggies)
+	$veggie_count/RichTextLabel.text = String(veggies)
 
 
 

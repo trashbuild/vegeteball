@@ -4,7 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var bounce_force = 250
+export var bounciness = 250
 export var points = 10
 var scoreboard
 
@@ -39,10 +39,15 @@ func _on_RigidBody2D_body_entered(body:Node):
 	$AnimatedSprite.frame = 1
 	# emit_signal("add_score", points)
 	scoreboard._on_add_score(points)
+	if body is RigidBody2D:
+		# print_debug(body.linear_velocity.normalized())
+		var incoming_velocity = body.linear_velocity.normalized()
+		# body.set_deferred("linear_velocity", incoming_velocity + (incoming_velocity * bounciness))
+
 	# print_debug("10 points!")
-	
+
 	
 
-	body.set_deferred("linear_velocity", Vector2(-500,0))
+	# body.set_deferred("linear_velocity", Vector2(-500,0))
 	# body._integrate_forces()
 	pass # Replace with function body.
