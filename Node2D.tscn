@@ -277,11 +277,11 @@ z_index = 1
 physics_material_override = SubResource( 22 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/StaticBody2D3"]
-polygon = PoolVector2Array( 951, 490, 1087, 321, 1036, 232, 952, 414, 953, 275, 943, 103, 929, 73, 900, 43, 867, 25, 801, 24, 736, 29, 615, -74, 469, -188, 266, -119, 254, 7, 92, 44, -2, 177, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
+polygon = PoolVector2Array( 951, 490, 1087, 321, 1036, 232, 952, 414, 953, 275, 943, 103, 929, 73, 900, 43, 867, 25, 801, 24, 736, 29, 615, -74, 469, -188, 267, -227, 202, -121, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
 
 [node name="Polygon2D" type="Polygon2D" parent="walls/StaticBody2D3"]
 texture = ExtResource( 23 )
-polygon = PoolVector2Array( 951, 601, 953, 275, 944, 101, 929, 72, 900, 42, 867, 25, 798, 24, 737, 29, 618, -72, 461, -183, 264, -118, 254, 7, 93, 50, -1, 175, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
+polygon = PoolVector2Array( 951, 601, 953, 275, 944, 101, 929, 72, 900, 42, 867, 25, 798, 24, 737, 29, 618, -72, 461, -183, 266, -225, 213, -140, 123, 30, 108, 35, 56, 84, 55, 151, 35, 204, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, -299, -1507, 1151, -1512, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
 
 [node name="Bumpers" type="Node2D" parent="."]
 
@@ -375,6 +375,8 @@ __meta__ = {
 [node name="RigidBody2D" type="RigidBody2D" parent="Bumpers/Gut-bumper_R"]
 collision_layer = 2
 mode = 3
+physics_material_override = ExtResource( 27 )
+custom_integrator = true
 contacts_reported = 10
 contact_monitor = true
 can_sleep = false
@@ -427,7 +429,7 @@ __meta__ = {
 position = Vector2( 0, 100 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 13 )
-frame = 2
+frame = 3
 speed_scale = 1.5
 playing = true
 
@@ -625,7 +627,12 @@ position = Vector2( 441, -428 )
 shape = SubResource( 37 )
 
 [node name="speedzone" type="Area2D" parent="."]
+gravity_point = true
+gravity_vec = Vector2( 1, 0 )
+gravity = 200.0
+linear_damp = 0.022
 script = ExtResource( 29 )
+boost_multiplier = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="speedzone"]
 position = Vector2( 834.625, 100 )
