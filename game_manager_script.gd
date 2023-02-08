@@ -15,3 +15,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_speedzone_body_entered(body:Node):
+	if body is RigidBody2D && body.name == "VeggieBody2D":
+		print_debug(body.linear_velocity)
+		var vel = body.linear_velocity
+		body.set_deferred("linear_velocity", vel * $speedzone.boost_multiplier)
+	pass # Replace with function body.
