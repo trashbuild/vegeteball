@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://Octogon-bumper.tscn" type="PackedScene" id=1]
 [ext_resource path="res://parsnip1.png" type="Texture" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://vegetaball_hack_font.tres" type="BitmapFont" id=28]
 [ext_resource path="res://speedzone_script.gd" type="Script" id=29]
 [ext_resource path="res://game_manager_script.gd" type="Script" id=30]
+[ext_resource path="res://wurm_shadermaterial.tres" type="Material" id=31]
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 21 )
@@ -109,8 +110,7 @@ extents = Vector2( 30, 30 )
 
 [sub_resource type="PhysicsMaterial" id=38]
 rough = true
-bounce = 1.0
-absorbent = true
+bounce = 3.84
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 12 )
@@ -153,10 +153,12 @@ extents = Vector2( 414.5, 66.5 )
 extents = Vector2( 702, 322 )
 
 [sub_resource type="RectangleShape2D" id=39]
-extents = Vector2( 58.1875, 180.625 )
+extents = Vector2( 33.0938, 127 )
+
+[sub_resource type="ImageTexture" id=41]
+size = Vector2( 64, 256 )
 
 [node name="Node2D" type="Node2D"]
-position = Vector2( 0, 1 )
 script = ExtResource( 30 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -166,7 +168,7 @@ zoom = Vector2( 1.5, 1.5 )
 process_mode = 0
 script = ExtResource( 5 )
 loc2 = Vector2( 400, -300 )
-speed = 0.5
+speed = 3.14
 
 [node name="Scoreboard" type="Sprite" parent="Camera2D"]
 position = Vector2( -497, -367 )
@@ -259,16 +261,16 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Worm-plunger1" type="Sprite" parent="walls/wormgate"]
-texture = ExtResource( 11 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wormgate"]
-position = Vector2( 4.81468, 1.75388 )
+position = Vector2( 4.8147, 1.75385 )
 rotation = 1.55571
-scale = Vector2( 1, 1 )
 shape = SubResource( 40 )
 one_way_collision = true
 one_way_collision_margin = 25.8
+
+[node name="Wormgate" type="Sprite" parent="walls/wormgate"]
+material = ExtResource( 31 )
+texture = ExtResource( 11 )
 
 [node name="gutter_l" type="StaticBody2D" parent="walls"]
 position = Vector2( 126, 220 )
@@ -487,6 +489,7 @@ __meta__ = {
 position = Vector2( 0, 150 )
 scale = Vector2( 2.75, 2.75 )
 frames = SubResource( 13 )
+frame = 2
 speed_scale = 1.5
 playing = true
 
@@ -716,11 +719,15 @@ gravity_point = true
 gravity = 200.0
 linear_damp = 0.022
 script = ExtResource( 29 )
-boost_multiplier = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="speedzone"]
-position = Vector2( 875, -164 )
+position = Vector2( 900.094, 276 )
 shape = SubResource( 39 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = ExtResource( 31 )
+position = Vector2( 1761, -411 )
+texture = SubResource( 41 )
 
 [connection signal="body_entered" from="Bumpers/Gut-bumper_L/RigidBody2D" to="Bumpers/Gut-bumper_L/RigidBody2D" method="_on_RigidBody2D_body_entered"]
 [connection signal="body_entered" from="Bumpers/Gut-bumper_L2/RigidBody2D" to="Bumpers/Gut-bumper_L2/RigidBody2D" method="_on_RigidBody2D_body_entered"]

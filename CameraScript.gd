@@ -6,7 +6,7 @@ extends Camera2D
 # var b = "text"
 export var loc1 = Vector2(400,160)
 export var loc2 = Vector2(400,300)
-export var speed = 1.0
+export var speed = 2.0
 var zone
 var camera_target = loc1
 

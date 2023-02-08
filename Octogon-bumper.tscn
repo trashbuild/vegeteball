@@ -1,24 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://bumperScript.gd" type="Script" id=1]
-[ext_resource path="res://octogon-bumper2-update.png" type="Texture" id=2]
+[ext_resource path="res://bumper_shadermaterial.tres" type="Material" id=2]
 [ext_resource path="res://bumper_phys_mat_big.tres" type="PhysicsMaterial" id=3]
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 136, 136 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 2 )
-region = Rect2( 136, 0, 136, 136 )
-
-[sub_resource type="SpriteFrames" id=20]
-animations = [ {
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 18 ) ],
-"loop": false,
-"name": "default",
-"speed": 5.0
-} ]
+[ext_resource path="res://Octogon-bumper_anim.tres" type="SpriteFrames" id=4]
 
 [node name="Octogon-bumper1" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -37,12 +22,19 @@ can_sleep = false
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="RigidBody2D"]
+material = ExtResource( 2 )
 z_index = 2
-frames = SubResource( 20 )
+frames = ExtResource( 4 )
 frame = 2
 playing = true
+offset = Vector2( 0.159637, 0 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+visible = false
 polygon = PoolVector2Array( 26, -64, 64, -26, 65, 26, 26, 65, -26, 64, -64, 26, -64, -26, -26, -65 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+visible = false
+material = ExtResource( 2 )
 
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_RigidBody2D_body_entered"]
