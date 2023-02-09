@@ -8,10 +8,13 @@ export var points = 10
 onready var scoreboard = get_node("/root/Node2D/Camera2D/Scoreboard")
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite.frame = 0
-	
+	$AnimationPlayer.stop(true)
+	# $AnimationPlayer.play("bump")
+
 	pass # Replace with function body.
 
 
@@ -30,7 +33,10 @@ func _ready():
 
 func _on_RigidBody2D_body_entered(body:Node):
 	# print_debug("ping " + body.name)
+	$AnimationPlayer.stop(true)
+	$AnimationPlayer.play("bump")
 	$AnimatedSprite.frame = 1
+
 	if body is RigidBody2D && body.name == "VeggieBody2D":
 		scoreboard._on_add_score(points)
 
