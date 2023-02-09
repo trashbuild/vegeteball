@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://Octogon-bumper.tscn" type="PackedScene" id=1]
 [ext_resource path="res://parsnip1.png" type="Texture" id=2]
@@ -83,6 +83,12 @@ animations = [ {
 } ]
 
 [sub_resource type="Theme" id=36]
+
+[sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 200, 300 )
+
+[sub_resource type="RectangleShape2D" id=46]
+extents = Vector2( 200, 200 )
 
 [sub_resource type="RectangleShape2D" id=40]
 extents = Vector2( 126.39, 13.5171 )
@@ -171,9 +177,6 @@ extents = Vector2( 702, 322 )
 
 [sub_resource type="RectangleShape2D" id=39]
 extents = Vector2( 33.0938, 127 )
-
-[sub_resource type="ImageTexture" id=41]
-size = Vector2( 64, 256 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 30 )
@@ -266,8 +269,47 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 15 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Camera2D"]
+visible = false
 texture = ExtResource( 22 )
-polygon = PoolVector2Array( -787, -466, -796, 483, 842, 695, 1171, -490, -787, -587 )
+polygon = PoolVector2Array( -1366, -360, -1345, 695, -807, 1098, 1223, 1056, 1562, -1089, -1137, -873 )
+
+[node name="Control3" type="Control" parent="Camera2D"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TouchScreenButton_right" type="TouchScreenButton" parent="Camera2D/Control3"]
+position = Vector2( 557, 112 )
+shape = SubResource( 45 )
+shape_centered = false
+action = "flipper_right"
+visibility_mode = 1
+
+[node name="Control" type="Control" parent="Camera2D"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -40.0
+margin_right = 20.0
+
+[node name="TouchScreenButton_plunger" type="TouchScreenButton" parent="Camera2D/Control"]
+position = Vector2( 27, 403 )
+shape = SubResource( 46 )
+shape_centered = false
+action = "plunger"
+visibility_mode = 1
+
+[node name="Control2" type="Control" parent="Camera2D"]
+anchor_bottom = 1.0
+
+[node name="TouchScreenButton_left" type="TouchScreenButton" parent="Camera2D/Control2"]
+position = Vector2( -563, 146 )
+shape = SubResource( 45 )
+shape_centered = false
+action = "flipper_left"
+visibility_mode = 1
 
 [node name="walls" type="Node2D" parent="."]
 
@@ -312,7 +354,7 @@ polygon = PoolVector2Array( 30.9995, 184, 64.9995, 179, 119, 289, 201.999, 405.0
 
 [node name="Polygon2D" type="Polygon2D" parent="walls/gutter_r"]
 texture = ExtResource( 23 )
-polygon = PoolVector2Array( 44.9996, 159, 64.9995, 180, 119, 289, 201.999, 405.001, 188.999, 485, 272.999, 562.001, 332, 597, 42.9819, 597.868, 25.1091, 597.922, 1.99854, 584, -3, 518, 2, 395, 6, 334, 30.9995, 188 )
+polygon = PoolVector2Array( 44.9996, 159, 64.9995, 180, 119, 289, 201.999, 405.001, 188.999, 485, 272.999, 562.001, 342.998, 624.001, 361.998, 781.001, 271.997, 1383, -44.0031, 1198, -9.00195, 769, 1.99854, 584, -3, 518, 2, 395, 6, 334, 30.9995, 188 )
 
 [node name="gutter_r2" type="StaticBody2D" parent="walls"]
 position = Vector2( 810, -577 )
@@ -336,20 +378,20 @@ z_index = 1
 physics_material_override = SubResource( 22 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/outer walls"]
-polygon = PoolVector2Array( 426, -552, 146, -577, 83, -465, 152, -292, 168, -29, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, -303, -764, 548, -750 )
+polygon = PoolVector2Array( 426, -552, 146, -577, 83, -465, 152, -292, 168, -29, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 24, 424, 175, 555, 398, 641, -242, 607, -305, -432, -303, -764, 548, -750 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="walls/outer walls"]
 polygon = PoolVector2Array( 951, 490, 1087, 321, 1036, 232, 952, 414, 953, 275, 943, 103, 943, -135, 899, -373, 837, -448, 464, -557, 403, -757, 1159, -748, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
 
 [node name="Polygon2D" type="Polygon2D" parent="walls/outer walls"]
 texture = ExtResource( 23 )
-polygon = PoolVector2Array( 80, -472, 128, -369, 149, -296, 158, -169, 168, -34, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 24, 424, 175, 555, 279, 598, -242, 607, -305, -432, -287, -687, 481, -740, 568, -542, 157, -568 )
+polygon = PoolVector2Array( 80, -472, 128, -369, 149, -296, 158, -169, 168, -34, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 24, 424, 175, 555, 398, 613, 375, 793, 308, 864, -29, 1318, -187, 933, -242, 607, -305, -432, -287, -687, 481, -740, 568, -542, 157, -568 )
 
 [node name="Polygon2D2" type="Polygon2D" parent="walls/outer walls"]
 position = Vector2( 0, 248.834 )
 scale = Vector2( 1, 0.648042 )
 texture = ExtResource( 23 )
-polygon = PoolVector2Array( 953, 275, 943, 103, 948, -548, 894, -964, 836, -1075.29, 255, -1362, -309, -1366, -316, -1566, 1168, -1548, 1148, -1354, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
+polygon = PoolVector2Array( 953, 275, 943, 103, 948, -548, 894, -964, 836, -1075.29, 255, -1362, -309, -1366, -316, -1566, 1168, -1548, 1148, -1354, 1159, -425, 1260, 1583.49, 694, 1540.28, 875, 602, 891, 653, 950, 649 )
 
 [node name="Bumpers" type="Node2D" parent="."]
 
@@ -526,7 +568,7 @@ __meta__ = {
 position = Vector2( 0, 150 )
 scale = Vector2( 2.75, 2.75 )
 frames = SubResource( 13 )
-frame = 3
+frame = 1
 speed_scale = 1.5
 playing = true
 
@@ -754,7 +796,6 @@ position = Vector2( 441, -428 )
 shape = SubResource( 37 )
 
 [node name="speedzone" type="Area2D" parent="."]
-visible = false
 gravity_point = true
 gravity = 200.0
 linear_damp = 0.022
@@ -763,11 +804,6 @@ script = ExtResource( 29 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="speedzone"]
 position = Vector2( 900.094, 276 )
 shape = SubResource( 39 )
-
-[node name="Sprite" type="Sprite" parent="."]
-material = ExtResource( 31 )
-position = Vector2( 1761, -411 )
-texture = SubResource( 41 )
 
 [connection signal="body_entered" from="Bumpers/Gut-bumper_L/RigidBody2D" to="Bumpers/Gut-bumper_L/RigidBody2D" method="_on_RigidBody2D_body_entered"]
 [connection signal="body_entered" from="Bumpers/Gut-bumper_L2/RigidBody2D" to="Bumpers/Gut-bumper_L2/RigidBody2D" method="_on_RigidBody2D_body_entered"]
