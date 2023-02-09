@@ -29,14 +29,14 @@ func _physics_process(delta):
 
 
 func _on_camera_pan_up_zone_body_entered(body:Node):
-	print_debug("oops, there's a " + body.name + " up here")
+	# print_debug("oops, there's a " + body.name + " up here")
 	# if body.name == "VeggieBody2D":
 	if body.get_parent().get_parent().name == "veggies":
 		camera_target = loc2
 	pass # Replace with function body.
 
 func _on_camera_pan_up_zone_body_exited(body:Node):
-	print_debug("oops, there's a " + body.name + " up here")
+	# print_debug("oops, there's a " + body.name + " up here")
 	# if body.name == "VeggieBody2D":
 	if body.get_parent().get_parent().name == "veggies":
 		camera_target = loc1

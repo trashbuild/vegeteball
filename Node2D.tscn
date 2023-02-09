@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Octogon-bumper.tscn" type="PackedScene" id=1]
 [ext_resource path="res://parsnip1.png" type="Texture" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://speedzone_script.gd" type="Script" id=29]
 [ext_resource path="res://game_manager_script.gd" type="Script" id=30]
 [ext_resource path="res://wurm_shadermaterial.tres" type="Material" id=31]
+[ext_resource path="res://bumper_shadermaterial.tres" type="Material" id=32]
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 21 )
@@ -368,7 +369,7 @@ margin_bottom = 93.8225
 rect_scale = Vector2( 0.440895, 0.544239 )
 theme = SubResource( 36 )
 custom_fonts/font = ExtResource( 28 )
-text = "1234"
+text = "0000000"
 
 [node name="veggie_count" type="Sprite" parent="Camera2D/Scoreboard"]
 position = Vector2( -53.4185, 89.7224 )
@@ -511,11 +512,13 @@ contacts_reported = 10
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 17 )
+points = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Gut-bumper_L/RigidBody2D"]
 polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54, 27, 49, -13, -57 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Gut-bumper_L/RigidBody2D"]
+material = ExtResource( 32 )
 position = Vector2( 0, -1 )
 frames = SubResource( 17 )
 playing = true
@@ -542,13 +545,16 @@ contacts_reported = 10
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 17 )
+points = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
 polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54, 27, 49, -13, -57 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
-position = Vector2( 0, -1 )
+material = ExtResource( 32 )
+position = Vector2( -0.705872, -0.29166 )
 frames = SubResource( 17 )
+frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
@@ -559,7 +565,7 @@ anims/bump = SubResource( 45 )
 
 [node name="Timer" type="Timer" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
 process_mode = 0
-wait_time = 0.028
+wait_time = 0.314
 
 [node name="Little-bumper" parent="Bumpers" instance=ExtResource( 18 )]
 position = Vector2( 169, -559 )
@@ -596,11 +602,14 @@ contacts_reported = 10
 contact_monitor = true
 can_sleep = false
 script = ExtResource( 17 )
+points = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Gut-bumper_R/RigidBody2D"]
 polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54, 27, 49, -13, -57 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Gut-bumper_R/RigidBody2D"]
+material = ExtResource( 32 )
+position = Vector2( 0.965942, 0.25882 )
 frames = SubResource( 17 )
 playing = true
 
@@ -649,7 +658,7 @@ __meta__ = {
 position = Vector2( 0, 150 )
 scale = Vector2( 2.75, 2.75 )
 frames = SubResource( 13 )
-frame = 3
+frame = 2
 speed_scale = 1.5
 playing = true
 
@@ -729,6 +738,8 @@ __meta__ = {
 }
 
 [node name="flipperBG" type="Sprite" parent="Flippers/Flipper_R_2"]
+material = ExtResource( 31 )
+use_parent_material = true
 position = Vector2( 30.2828, 27.8021 )
 texture = ExtResource( 14 )
 
@@ -831,7 +842,7 @@ polygon = PoolVector2Array( 9, -5, 9, 4, 5, 8, -2, 8, -10, 18, -13, 18, -23, 28,
 texture = ExtResource( 2 )
 
 [node name="Carrot" type="Node2D" parent="veggies"]
-position = Vector2( -1357, -330 )
+position = Vector2( -598, -284 )
 script = ExtResource( 25 )
 __meta__ = {
 "_edit_group_": true

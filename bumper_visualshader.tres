@@ -73,7 +73,7 @@ operator = 2
 
 [sub_resource type="VisualShaderNodeScalarUniform" id=29]
 output_port_for_preview = 0
-uniform_name = "TEST_ScalarUniform"
+uniform_name = "u_bumper_brightness"
 hint = 1
 default_value_enabled = true
 
@@ -118,7 +118,7 @@ function = 5
 [resource]
 code = "shader_type canvas_item;
 uniform sampler2D tex_frg_26;
-uniform float TEST_ScalarUniform : hint_range(0, 1) = 0;
+uniform float u_bumper_brightness : hint_range(0, 1) = 0;
 
 
 
@@ -187,7 +187,7 @@ void fragment() {
 	float n_out38p0 = n_out9p1 * n_out40p0;
 
 // ScalarUniform:34
-	float n_out34p0 = TEST_ScalarUniform;
+	float n_out34p0 = u_bumper_brightness;
 
 // ScalarOp:41
 	float n_out41p0 = n_out38p0 * n_out34p0;
@@ -227,7 +227,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -437.845, -363.127 )
+graph_offset = Vector2( -444.619, 256.926 )
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 1140, 140 )
