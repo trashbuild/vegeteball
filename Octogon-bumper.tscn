@@ -1,56 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://bumperScript.gd" type="Script" id=1]
 [ext_resource path="res://bumper_shadermaterial.tres" type="Material" id=2]
 [ext_resource path="res://bumper_phys_mat_big.tres" type="PhysicsMaterial" id=3]
 [ext_resource path="res://Octogon-bumper_anim.tres" type="SpriteFrames" id=4]
-
-[sub_resource type="Animation" id=1]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:material:shader_param/TEST_ScalarUniform")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-
-[sub_resource type="Animation" id=2]
-resource_name = "bump"
-step = 0.2
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:material:shader_param/TEST_ScalarUniform")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 0.00280613, -0.25, 0, 0.0163009, 0.0303316, 0.988582, -0.0305642, 0.00421274, 0.00815044, -0.94925, -0.0151919, -0.877743, 0.0402481, 0.25, 0 ),
-"times": PoolRealArray( 0.00407522, 0.0529779, 1 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/keys = {
-"points": PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
-"times": PoolRealArray( 0.2, 0.4 )
-}
 
 [node name="Octogon-bumper1" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -68,17 +21,11 @@ contact_monitor = true
 can_sleep = false
 script = ExtResource( 1 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody2D"]
-root_node = NodePath("../AnimatedSprite")
-playback_process_mode = 0
-method_call_mode = 1
-anims/RESET = SubResource( 1 )
-anims/bump = SubResource( 2 )
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="RigidBody2D"]
 material = ExtResource( 2 )
 z_index = 2
 frames = ExtResource( 4 )
+frame = 2
 playing = true
 offset = Vector2( 0.159637, 0 )
 

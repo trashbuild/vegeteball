@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://Octogon-bumper.tscn" type="PackedScene" id=1]
 [ext_resource path="res://parsnip1.png" type="Texture" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://game_manager_script.gd" type="Script" id=30]
 [ext_resource path="res://wurm_shadermaterial.tres" type="Material" id=31]
 [ext_resource path="res://bumper_shadermaterial.tres" type="Material" id=32]
+[ext_resource path="res://bumper_visualshader.tres" type="Shader" id=33]
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 21 )
@@ -90,6 +91,21 @@ extents = Vector2( 126.39, 13.5171 )
 friction = 0.3
 bounce = 0.41
 
+[sub_resource type="ShaderMaterial" id=42]
+resource_local_to_scene = true
+shader = ExtResource( 33 )
+shader_param/u_bumper_brightness = 0.0
+
+[sub_resource type="ShaderMaterial" id=43]
+resource_local_to_scene = true
+shader = ExtResource( 33 )
+shader_param/u_bumper_brightness = 0.0
+
+[sub_resource type="ShaderMaterial" id=44]
+resource_local_to_scene = true
+shader = ExtResource( 33 )
+shader_param/u_bumper_brightness = 0.0
+
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 16 )
 region = Rect2( 0, 0, 64, 128 )
@@ -105,147 +121,6 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
-
-[sub_resource type="Animation" id=42]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:material:shader_param/TEST_ScalarUniform")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 0, 0, 0, 0, 0 ),
-"times": PoolRealArray( 0 )
-}
-
-[sub_resource type="Animation" id=43]
-resource_name = "bump"
-step = 0.2
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:material:shader_param/TEST_ScalarUniform")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 0.00280613, -0.25, 0, 0.0163009, 0.0303316, 0.988582, -0.0305642, 0.00421274, 0.00815044, -0.94925, -0.0151919, -0.877743, 0.0402481, 0.25, 0 ),
-"times": PoolRealArray( 0.00407522, 0.0529779, 1 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/keys = {
-"points": PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
-"times": PoolRealArray( 0.2, 0.4 )
-}
-
-[sub_resource type="Animation" id=44]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:material:shader_param/TEST_ScalarUniform")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 0, 0, 0, 0, 0 ),
-"times": PoolRealArray( 0 )
-}
-
-[sub_resource type="Animation" id=45]
-resource_name = "bump"
-step = 0.2
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:material:shader_param/TEST_ScalarUniform")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 0.00280613, -0.25, 0, 0.0163009, 0.0303316, 0.988582, -0.0305642, 0.00421274, 0.00815044, -0.94925, -0.0151919, -0.877743, 0.0402481, 0.25, 0 ),
-"times": PoolRealArray( 0.00407522, 0.0529779, 1 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/keys = {
-"points": PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
-"times": PoolRealArray( 0.2, 0.4 )
-}
-
-[sub_resource type="Animation" id=46]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:material:shader_param/TEST_ScalarUniform")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 0, 0, 0, 0, 0 ),
-"times": PoolRealArray( 0 )
-}
-
-[sub_resource type="Animation" id=47]
-resource_name = "bump"
-step = 0.2
-tracks/0/type = "bezier"
-tracks/0/path = NodePath(".:material:shader_param/TEST_ScalarUniform")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( 0.00280613, -0.25, 0, 0.0163009, 0.0303316, 0.988582, -0.0305642, 0.00421274, 0.00815044, -0.94925, -0.0151919, -0.877743, 0.0402481, 0.25, 0 ),
-"times": PoolRealArray( 0.00407522, 0.0529779, 1 )
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath(".:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/keys = {
-"points": PoolRealArray( 1, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
-"times": PoolRealArray( 0.2, 0.4 )
-}
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 30, 30 )
@@ -484,17 +359,26 @@ position = Vector2( 751, -17 )
 [node name="RigidBody2D" parent="Bumpers/Octogon-bumper1" index="0"]
 bounciness = 100
 
+[node name="AnimatedSprite" parent="Bumpers/Octogon-bumper1/RigidBody2D" index="0"]
+material = SubResource( 42 )
+
 [node name="Octogon-bumper2" parent="Bumpers" instance=ExtResource( 1 )]
 position = Vector2( 276, -188 )
 
 [node name="RigidBody2D" parent="Bumpers/Octogon-bumper2" index="0"]
 bounciness = 100
 
+[node name="AnimatedSprite" parent="Bumpers/Octogon-bumper2/RigidBody2D" index="0"]
+material = SubResource( 43 )
+
 [node name="Octogon-bumper3" parent="Bumpers" instance=ExtResource( 1 )]
 position = Vector2( 201, 304 )
 
 [node name="RigidBody2D" parent="Bumpers/Octogon-bumper3" index="0"]
 bounciness = 100
+
+[node name="AnimatedSprite" parent="Bumpers/Octogon-bumper3/RigidBody2D" index="0"]
+material = SubResource( 44 )
 
 [node name="Gut-bumper_L" type="Node2D" parent="Bumpers"]
 position = Vector2( 319, 443 )
@@ -521,13 +405,8 @@ polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54,
 material = ExtResource( 32 )
 position = Vector2( 0, -1 )
 frames = SubResource( 17 )
+frame = 3
 playing = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bumpers/Gut-bumper_L/RigidBody2D"]
-root_node = NodePath("../AnimatedSprite")
-method_call_mode = 1
-anims/RESET = SubResource( 42 )
-anims/bump = SubResource( 43 )
 
 [node name="Gut-bumper_L2" type="Node2D" parent="Bumpers"]
 position = Vector2( 91, 92 )
@@ -556,12 +435,6 @@ position = Vector2( -0.705872, -0.29166 )
 frames = SubResource( 17 )
 frame = 3
 playing = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
-root_node = NodePath("../AnimatedSprite")
-method_call_mode = 1
-anims/RESET = SubResource( 44 )
-anims/bump = SubResource( 45 )
 
 [node name="Timer" type="Timer" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
 process_mode = 0
@@ -611,13 +484,8 @@ polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54,
 material = ExtResource( 32 )
 position = Vector2( 0.965942, 0.25882 )
 frames = SubResource( 17 )
+frame = 3
 playing = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bumpers/Gut-bumper_R/RigidBody2D"]
-root_node = NodePath("../AnimatedSprite")
-method_call_mode = 1
-anims/RESET = SubResource( 46 )
-anims/bump = SubResource( 47 )
 
 [node name="Plunger" type="Node2D" parent="."]
 position = Vector2( 917, 722 )
@@ -658,7 +526,7 @@ __meta__ = {
 position = Vector2( 0, 150 )
 scale = Vector2( 2.75, 2.75 )
 frames = SubResource( 13 )
-frame = 2
+frame = 3
 speed_scale = 1.5
 playing = true
 
