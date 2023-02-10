@@ -18,5 +18,5 @@ script = ExtResource( 1 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 10, -3, 9, 5, 5, 9, 0, 13, -10, 20, -19, 26, -23, 28, -27, 30, -30, 28, -26, 22, -25, 19, -23, 14, -20, 11, -15, 5, -11, -2, -7, -7, -1, -10, 4, -9 )
 
-[node name="Carrot_sprite" type="Sprite" parent="."]
+[node name="Carrot_sprite" type="Sprite" parent="CollisionPolygon2D"]
 texture = ExtResource( 2 )

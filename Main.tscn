@@ -114,7 +114,7 @@ animations = [ {
 extents = Vector2( 35, 59 )
 
 [sub_resource type="RectangleShape2D" id=21]
-extents = Vector2( 414.5, 66.5 )
+extents = Vector2( 331, 180.5 )
 
 [sub_resource type="RectangleShape2D" id=37]
 extents = Vector2( 702, 322 )
@@ -282,7 +282,7 @@ physics_material_override = SubResource( 22 )
 polygon = PoolVector2Array( 426, -552, 146, -577, 83, -465, 152, -292, 168, -29, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 24, 424, 175, 555, 398, 641, -242, 607, -305, -432, -303, -764, 548, -750 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="walls/outer walls"]
-polygon = PoolVector2Array( 951, 490, 1087, 321, 1036, 232, 952, 414, 953, 275, 943, 103, 943, -135, 899, -373, 837, -448, 464, -557, 403, -757, 1159, -748, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
+polygon = PoolVector2Array( 952, 414, 953, 275, 943, 103, 943, -135, 899, -373, 837, -448, 464, -557, 403, -757, 1159, -748, 1159, -425, 1157, 719, 875, 707, 875, 602, 891, 653, 950, 649 )
 
 [node name="Polygon2D" type="Polygon2D" parent="walls/outer walls"]
 texture = ExtResource( 29 )
@@ -292,7 +292,7 @@ polygon = PoolVector2Array( 80, -472, 128, -369, 149, -296, 158, -169, 168, -34,
 position = Vector2( 0, 248.834 )
 scale = Vector2( 1, 0.648042 )
 texture = ExtResource( 29 )
-polygon = PoolVector2Array( 953, 275, 943, 103, 948, -548, 894, -964, 836, -1075.29, 255, -1362, -309, -1366, -316, -1566, 1168, -1548, 1148, -1354, 1159, -425, 1260, 1583.49, 694, 1540.28, 875, 602, 891, 653, 950, 649 )
+polygon = PoolVector2Array( 943, 103, 948, -548, 894, -964, 836, -1075.29, 255, -1362, -309, -1366, -316, -1566, 1168, -1548, 1148, -1354, 1159, -425, 1260, 1583.49, 694, 1540.28, 875, 543.431, 949, 543.431 )
 
 [node name="Bumpers" type="Node2D" parent="."]
 
@@ -455,12 +455,12 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+launch_strength_cap = 1000
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Plunger/Head"]
 position = Vector2( 0, 150 )
 scale = Vector2( 2.75, 2.75 )
 frames = SubResource( 13 )
-frame = 3
 speed_scale = 1.5
 playing = true
 
@@ -594,13 +594,13 @@ script = ExtResource( 33 )
 veggie_types = [ ExtResource( 19 ), ExtResource( 14 ), ExtResource( 11 ) ]
 
 [node name="killzone" type="Area2D" parent="."]
-position = Vector2( 435, 621 )
+position = Vector2( 436, 621 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2( 18.5, 48.5 )
+position = Vector2( 15, 213.5 )
 shape = SubResource( 21 )
 
 [node name="camera_pan_up_zone" type="Area2D" parent="."]
@@ -626,7 +626,7 @@ shape = SubResource( 39 )
 [connection signal="body_entered" from="Bumpers/Gut-bumper_L/RigidBody2D" to="Bumpers/Gut-bumper_L/RigidBody2D" method="_on_RigidBody2D_body_entered"]
 [connection signal="body_entered" from="Bumpers/Gut-bumper_L2/RigidBody2D" to="Bumpers/Gut-bumper_L2/RigidBody2D" method="_on_RigidBody2D_body_entered"]
 [connection signal="body_entered" from="Bumpers/Gut-bumper_R/RigidBody2D" to="Bumpers/Gut-bumper_R/RigidBody2D" method="_on_RigidBody2D_body_entered"]
-[connection signal="body_entered" from="killzone" to="Camera2D/Scoreboard" method="_on_killzone_body_entered"]
+[connection signal="body_entered" from="killzone" to="." method="_on_killzone_body_entered"]
 [connection signal="body_entered" from="camera_pan_up_zone" to="Camera2D" method="_on_camera_pan_up_zone_body_entered"]
 [connection signal="body_exited" from="camera_pan_up_zone" to="Camera2D" method="_on_camera_pan_up_zone_body_exited"]
 [connection signal="body_entered" from="speedzone" to="." method="_on_speedzone_body_entered"]
