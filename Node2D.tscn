@@ -8,12 +8,10 @@
 [ext_resource path="res://plungerScript.gd" type="Script" id=6]
 [ext_resource path="res://icon.png" type="Texture" id=7]
 [ext_resource path="res://gutbumper-l.png" type="Texture" id=8]
-[ext_resource path="res://flipper2.png" type="Texture" id=9]
 [ext_resource path="res://FlipperScript.gd" type="Script" id=10]
 [ext_resource path="res://worm-plunger1.png" type="Texture" id=11]
 [ext_resource path="res://worm-plunger3-frames.png" type="Texture" id=12]
 [ext_resource path="res://FlipperScript_R.gd" type="Script" id=13]
-[ext_resource path="res://flipper2-BG.png" type="Texture" id=14]
 [ext_resource path="res://background1-tilable.png" type="Texture" id=15]
 [ext_resource path="res://gutbumper-l-ani-sheet-update.png" type="Texture" id=16]
 [ext_resource path="res://bumperScript.gd" type="Script" id=17]
@@ -33,6 +31,8 @@
 [ext_resource path="res://wurm_shadermaterial.tres" type="Material" id=31]
 [ext_resource path="res://bumper_shadermaterial.tres" type="Material" id=32]
 [ext_resource path="res://bumper_visualshader.tres" type="Shader" id=33]
+[ext_resource path="res://flipper3.png" type="Texture" id=34]
+[ext_resource path="res://flipper3-BG.png" type="Texture" id=35]
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 21 )
@@ -568,7 +568,7 @@ __meta__ = {
 position = Vector2( 0, 150 )
 scale = Vector2( 2.75, 2.75 )
 frames = SubResource( 13 )
-frame = 1
+frame = 3
 speed_scale = 1.5
 playing = true
 
@@ -593,7 +593,7 @@ __meta__ = {
 
 [node name="Sprite2" type="Sprite" parent="Flippers/Flipper_L_1"]
 position = Vector2( 30.2827, 27.8021 )
-texture = ExtResource( 14 )
+texture = ExtResource( 35 )
 
 [node name="head" type="Node2D" parent="Flippers/Flipper_L_1"]
 script = ExtResource( 10 )
@@ -606,7 +606,7 @@ mode = 3
 
 [node name="Sprite" type="Sprite" parent="Flippers/Flipper_L_1/head/RigidBody2D"]
 position = Vector2( 0, -1 )
-texture = ExtResource( 9 )
+texture = ExtResource( 34 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippers/Flipper_L_1/head/RigidBody2D"]
 polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 11, -20, 21, -37, 21, -46, 17, -50, 12, -53, 4, -54, -6, -51, -14, -45, -20, -37, -23 )
@@ -621,7 +621,7 @@ __meta__ = {
 
 [node name="flipperBG" type="Sprite" parent="Flippers/Flipper_R_1"]
 position = Vector2( 30.2828, 27.8021 )
-texture = ExtResource( 14 )
+texture = ExtResource( 35 )
 
 [node name="head" type="Node2D" parent="Flippers/Flipper_R_1"]
 script = ExtResource( 13 )
@@ -634,7 +634,7 @@ mode = 3
 
 [node name="Sprite" type="Sprite" parent="Flippers/Flipper_R_1/head/RigidBody2D"]
 position = Vector2( 0, -1 )
-texture = ExtResource( 9 )
+texture = ExtResource( 34 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippers/Flipper_R_1/head/RigidBody2D"]
 polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 11, -20, 21, -37, 21, -46, 17, -50, 12, -53, 4, -54, -6, -51, -14, -45, -20, -37, -23 )
@@ -651,7 +651,7 @@ __meta__ = {
 material = ExtResource( 31 )
 use_parent_material = true
 position = Vector2( 30.2828, 27.8021 )
-texture = ExtResource( 14 )
+texture = ExtResource( 35 )
 
 [node name="head" type="Node2D" parent="Flippers/Flipper_R_2"]
 script = ExtResource( 13 )
@@ -664,7 +664,7 @@ mode = 3
 
 [node name="Sprite" type="Sprite" parent="Flippers/Flipper_R_2/head/RigidBody2D"]
 position = Vector2( 0, -1 )
-texture = ExtResource( 9 )
+texture = ExtResource( 34 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippers/Flipper_R_2/head/RigidBody2D"]
 polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 11, -20, 21, -37, 21, -46, 17, -50, 12, -53, 4, -54, -6, -51, -14, -45, -20, -37, -23 )
@@ -678,7 +678,7 @@ __meta__ = {
 
 [node name="flipperBG" type="Sprite" parent="Flippers/Flipper_L_2"]
 position = Vector2( 30.2828, 27.8021 )
-texture = ExtResource( 14 )
+texture = ExtResource( 35 )
 
 [node name="head" type="Node2D" parent="Flippers/Flipper_L_2"]
 script = ExtResource( 10 )
@@ -691,7 +691,7 @@ mode = 3
 
 [node name="Sprite" type="Sprite" parent="Flippers/Flipper_L_2/head/RigidBody2D"]
 position = Vector2( 0, -1 )
-texture = ExtResource( 9 )
+texture = ExtResource( 34 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippers/Flipper_L_2/head/RigidBody2D"]
 polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 11, -20, 21, -37, 21, -46, 17, -50, 12, -53, 4, -54, -6, -51, -14, -45, -20, -37, -23 )
