@@ -1,37 +1,36 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://scripts/plungerScript.gd" type="Script" id=1]
 [ext_resource path="res://scripts/CameraScript.gd" type="Script" id=2]
 [ext_resource path="res://bumper_shadermaterial.tres" type="Material" id=3]
-[ext_resource path="res://score_text_banner.png" type="Texture" id=4]
+[ext_resource path="res://art/sprites/score_text_banner.png" type="Texture" id=4]
 [ext_resource path="res://scripts/bumperScript.gd" type="Script" id=5]
-[ext_resource path="res://Little-bumper.tscn" type="PackedScene" id=6]
-[ext_resource path="res://gutbumper-l.png" type="Texture" id=7]
-[ext_resource path="res://background1-tilable.png" type="Texture" id=8]
-[ext_resource path="res://scripts/FlipperScript.gd" type="Script" id=9]
-[ext_resource path="res://scripts/FlipperScript_R.gd" type="Script" id=10]
+[ext_resource path="res://scenes/prefabs/Little-bumper.tscn" type="PackedScene" id=6]
+[ext_resource path="res://art/sprites/gutbumper-l.png" type="Texture" id=7]
+[ext_resource path="res://art/sprites/background1-tilable.png" type="Texture" id=8]
 [ext_resource path="res://scenes/veggies/Rutabaga.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scripts/speedzone_script.gd" type="Script" id=12]
-[ext_resource path="res://vegetaball_hack_font.tres" type="BitmapFont" id=13]
+[ext_resource path="res://fonts/vegetaball_hack_font.tres" type="BitmapFont" id=13]
 [ext_resource path="res://scenes/veggies/Parsnip.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scripts/game_manager_script.gd" type="Script" id=15]
 [ext_resource path="res://wall_phys_mat.tres" type="PhysicsMaterial" id=16]
 [ext_resource path="res://bumper_phys_mat_gut.tres" type="PhysicsMaterial" id=17]
-[ext_resource path="res://flipper3.png" type="Texture" id=18]
 [ext_resource path="res://scenes/veggies/Carrot.tscn" type="PackedScene" id=19]
+[ext_resource path="res://art/sprites/high_score_text_banner.png" type="Texture" id=20]
 [ext_resource path="res://icon.png" type="Texture" id=21]
 [ext_resource path="res://wurm_shadermaterial.tres" type="Material" id=22]
-[ext_resource path="res://background-square.png" type="Texture" id=23]
+[ext_resource path="res://art/sprites/background-square.png" type="Texture" id=23]
 [ext_resource path="res://scripts/Scoreboard.gd" type="Script" id=24]
-[ext_resource path="res://gutbumper-l-ani-sheet-update.png" type="Texture" id=25]
-[ext_resource path="res://worm-plunger1.png" type="Texture" id=26]
-[ext_resource path="res://worm-plunger3-frames.png" type="Texture" id=27]
-[ext_resource path="res://flipper3-BG.png" type="Texture" id=28]
-[ext_resource path="res://forground-working.png" type="Texture" id=29]
-[ext_resource path="res://vegetable_text_banner.png" type="Texture" id=30]
-[ext_resource path="res://Octogon-bumper.tscn" type="PackedScene" id=31]
-[ext_resource path="res://bumper_visualshader.tres" type="Shader" id=32]
+[ext_resource path="res://art/sprites/gutbumper-spritesheet.png" type="Texture" id=25]
+[ext_resource path="res://art/sprites/worm-gate.png" type="Texture" id=26]
+[ext_resource path="res://art/sprites/worm-plunger-spritesheet.png" type="Texture" id=27]
+[ext_resource path="res://art/sprites/forground-working.png" type="Texture" id=29]
+[ext_resource path="res://art/sprites/vegetable_text_banner.png" type="Texture" id=30]
+[ext_resource path="res://scenes/prefabs/Octogon-bumper.tscn" type="PackedScene" id=31]
+[ext_resource path="res://shaders/bumper_visualshader.tres" type="Shader" id=32]
 [ext_resource path="res://scripts/veggie_spawner.gd" type="Script" id=33]
+[ext_resource path="res://scenes/prefabs/Flipper_L.tscn" type="PackedScene" id=34]
+[ext_resource path="res://scenes/prefabs/Flipper_R.tscn" type="PackedScene" id=35]
 
 [sub_resource type="Theme" id=36]
 
@@ -163,6 +162,21 @@ margin_top = 88.0697
 margin_right = 371.145
 margin_bottom = 166.07
 rect_scale = Vector2( 1.73774, 1.95791 )
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="high_score" type="Sprite" parent="Camera2D/Scoreboard"]
+position = Vector2( -45.1205, -36.8225 )
+scale = Vector2( 0.264997, 0.264997 )
+z_index = 4
+texture = ExtResource( 20 )
+
+[node name="Label" type="Label" parent="Camera2D/Scoreboard/high_score"]
+margin_left = -97.8552
+margin_top = 41.0992
+margin_right = 371.145
+margin_bottom = 119.099
+rect_scale = Vector2( 0.855684, 0.964098 )
 custom_fonts/font = ExtResource( 13 )
 text = "0"
 
@@ -461,6 +475,7 @@ launch_strength_cap = 1000
 position = Vector2( 0, 150 )
 scale = Vector2( 2.75, 2.75 )
 frames = SubResource( 13 )
+frame = 3
 speed_scale = 1.5
 playing = true
 
@@ -476,117 +491,19 @@ shape = SubResource( 8 )
 [node name="Flippers" type="Node2D" parent="."]
 position = Vector2( 223, 493 )
 
-[node name="Flipper_L_1" type="Node2D" parent="Flippers"]
+[node name="Flipper_L_1" parent="Flippers" instance=ExtResource( 34 )]
 position = Vector2( 128, 12 )
-rotation = 0.523599
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="Sprite2" type="Sprite" parent="Flippers/Flipper_L_1"]
-position = Vector2( 30.2827, 27.8021 )
-texture = ExtResource( 28 )
-
-[node name="head" type="Node2D" parent="Flippers/Flipper_L_1"]
-script = ExtResource( 9 )
-travelLength = 50
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Flippers/Flipper_L_1/head"]
-position = Vector2( 31, 0.999969 )
-collision_layer = 4
-mode = 3
-
-[node name="Sprite" type="Sprite" parent="Flippers/Flipper_L_1/head/RigidBody2D"]
-position = Vector2( 0, -1 )
-texture = ExtResource( 18 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippers/Flipper_L_1/head/RigidBody2D"]
-polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 11, -20, 21, -37, 21, -46, 17, -50, 12, -53, 4, -54, -6, -51, -14, -45, -20, -37, -23 )
-
-[node name="Flipper_R_1" type="Node2D" parent="Flippers"]
+[node name="Flipper_R_1" parent="Flippers" instance=ExtResource( 35 )]
 position = Vector2( 344, 11 )
-rotation = -0.523599
-scale = Vector2( -1, 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="flipperBG" type="Sprite" parent="Flippers/Flipper_R_1"]
-position = Vector2( 30.2828, 27.8021 )
-texture = ExtResource( 28 )
-
-[node name="head" type="Node2D" parent="Flippers/Flipper_R_1"]
-script = ExtResource( 10 )
-travelLength = 50
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Flippers/Flipper_R_1/head"]
-position = Vector2( 31, 0.999969 )
-collision_layer = 4
-mode = 3
-
-[node name="Sprite" type="Sprite" parent="Flippers/Flipper_R_1/head/RigidBody2D"]
-position = Vector2( 0, -1 )
-texture = ExtResource( 18 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippers/Flipper_R_1/head/RigidBody2D"]
-polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 11, -20, 21, -37, 21, -46, 17, -50, 12, -53, 4, -54, -6, -51, -14, -45, -20, -37, -23 )
-
-[node name="Flipper_R_2" type="Node2D" parent="Flippers"]
+[node name="Flipper_R_2" parent="Flippers" instance=ExtResource( 35 )]
 position = Vector2( 379, -679 )
 rotation = -0.951105
-scale = Vector2( -1, 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="flipperBG" type="Sprite" parent="Flippers/Flipper_R_2"]
-material = ExtResource( 22 )
-use_parent_material = true
-position = Vector2( 30.2828, 27.8021 )
-texture = ExtResource( 28 )
-
-[node name="head" type="Node2D" parent="Flippers/Flipper_R_2"]
-script = ExtResource( 10 )
-travelLength = 50
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Flippers/Flipper_R_2/head"]
-position = Vector2( 31, 0.999969 )
-collision_layer = 4
-mode = 3
-
-[node name="Sprite" type="Sprite" parent="Flippers/Flipper_R_2/head/RigidBody2D"]
-position = Vector2( 0, -1 )
-texture = ExtResource( 18 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippers/Flipper_R_2/head/RigidBody2D"]
-polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 11, -20, 21, -37, 21, -46, 17, -50, 12, -53, 4, -54, -6, -51, -14, -45, -20, -37, -23 )
-
-[node name="Flipper_L_2" type="Node2D" parent="Flippers"]
+[node name="Flipper_L_2" parent="Flippers" instance=ExtResource( 34 )]
 position = Vector2( -159, -266 )
 rotation = 1.54462
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="flipperBG" type="Sprite" parent="Flippers/Flipper_L_2"]
-position = Vector2( 30.2828, 27.8021 )
-texture = ExtResource( 28 )
-
-[node name="head" type="Node2D" parent="Flippers/Flipper_L_2"]
-script = ExtResource( 9 )
-travelLength = 50
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Flippers/Flipper_L_2/head"]
-position = Vector2( 31, 0.999969 )
-collision_layer = 4
-mode = 3
-
-[node name="Sprite" type="Sprite" parent="Flippers/Flipper_L_2/head/RigidBody2D"]
-position = Vector2( 0, -1 )
-texture = ExtResource( 18 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippers/Flipper_L_2/head/RigidBody2D"]
-polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 11, -20, 21, -37, 21, -46, 17, -50, 12, -53, 4, -54, -6, -51, -14, -45, -20, -37, -23 )
 
 [node name="veggies" type="Node2D" parent="."]
 position = Vector2( 904, 360 )
@@ -634,3 +551,4 @@ shape = SubResource( 39 )
 [editable path="Bumpers/Octogon-bumper1"]
 [editable path="Bumpers/Octogon-bumper2"]
 [editable path="Bumpers/Octogon-bumper3"]
+[editable path="Flippers/Flipper_L_1"]
