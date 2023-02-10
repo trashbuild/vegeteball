@@ -11,8 +11,9 @@ var textbox
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	textbox = $RichTextLabel
-	$veggie_count/RichTextLabel.text = String(veggies)
+	print_debug(veggies)
+	textbox = $Label
+	$veggie_count/Label.text = String(veggies)
 	pass # Replace with function body.
 
 func _on_add_score(points):
@@ -21,22 +22,25 @@ func _on_add_score(points):
 	# print_debug(score)
 
 func _veggie_update(veg):
+	print_debug("updating veg count plus ", veg)
 	veggies += veg
-	print_debug(veggies)
-	$veggie_count/RichTextLabel.text = String(veggies)
+	
+	$veggie_count/Label.text = String(veggies)
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if score <0: score = 0
+	if score <0: 
+		score = 0
 	textbox.text = String(score)
 	
 	pass
 
 
-func _on_killzone_body_entered(_body:Node):
-	_veggie_update(-1)
+func _on_killzone_body_entered(body:Node):
+	if body.get_parent().name == "veggies":
+		_veggie_update(-1)
 	if veggies <= 0:
 		self.emit_signal("game_over")
 	pass # Replace with function body.

@@ -35,7 +35,7 @@ func _physics_process(_delta):
 func _on_RigidBody2D_body_entered(body:Node):
 	$AnimatedSprite.frame = 1
 	bumper_brightness = 1
-	if body is RigidBody2D && body.name == "VeggieBody2D":
+	if body is RigidBody2D && body.get_parent().name == "veggies":
 		scoreboard._on_add_score(points)
 
 		# so this was all to deflect the vegeteball, but it turns out you can just turn up the bounciness on the physics material so it's unnecessary
