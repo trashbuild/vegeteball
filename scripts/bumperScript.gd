@@ -5,7 +5,7 @@ extends Node2D
 # var b = "text"
 export var bounciness = 250 #this really aughtta connect to the physics material now that that's how bouncing is handled
 export var points = 10
-onready var scoreboard = get_node("/root/Node2D/Camera2D/Scoreboard")
+onready var scoreboard = get_node("/root/Main/Camera2D/Scoreboard")
 var bumper_brightness = 1
 
 

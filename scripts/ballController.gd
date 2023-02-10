@@ -12,8 +12,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# killzone = get_node("/root/Node2D/killzone")
-	# scoreboard = get_node("/root/Node2D/Camera2D/Scoreboard")
+	# killzone = get_node("/root/Main/killzone")
+	# scoreboard = get_node("/root/Main/Camera2D/Scoreboard")
 	# scoreboard._veggie_update(1)
 	# rigidBody = $VeggieBody2D
 

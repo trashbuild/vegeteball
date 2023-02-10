@@ -12,7 +12,7 @@ var camera_target = loc1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	zone = get_node("/root/Node2D/camera_pan_up_zone")
+	zone = get_node("/root/Main/camera_pan_up_zone")
 	pass # Replace with function body.
 
 

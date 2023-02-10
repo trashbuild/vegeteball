@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://bumperScript.gd" type="Script" id=1]
+[ext_resource path="res://scripts/bumperScript.gd" type="Script" id=1]
 [ext_resource path="res://bumper_shadermaterial.tres" type="Material" id=2]
 [ext_resource path="res://bumper_phys_mat_big.tres" type="PhysicsMaterial" id=3]
 [ext_resource path="res://Octogon-bumper_anim.tres" type="SpriteFrames" id=4]

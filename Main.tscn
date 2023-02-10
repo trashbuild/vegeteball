@@ -1,37 +1,37 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=55 format=2]
 
-[ext_resource path="res://Octogon-bumper.tscn" type="PackedScene" id=1]
-[ext_resource path="res://parsnip1.png" type="Texture" id=2]
-[ext_resource path="res://rutabaga1.png" type="Texture" id=3]
-[ext_resource path="res://carrot1.png" type="Texture" id=4]
-[ext_resource path="res://CameraScript.gd" type="Script" id=5]
-[ext_resource path="res://plungerScript.gd" type="Script" id=6]
-[ext_resource path="res://icon.png" type="Texture" id=7]
-[ext_resource path="res://gutbumper-l.png" type="Texture" id=8]
-[ext_resource path="res://FlipperScript.gd" type="Script" id=10]
-[ext_resource path="res://worm-plunger1.png" type="Texture" id=11]
-[ext_resource path="res://worm-plunger3-frames.png" type="Texture" id=12]
-[ext_resource path="res://FlipperScript_R.gd" type="Script" id=13]
-[ext_resource path="res://background1-tilable.png" type="Texture" id=15]
-[ext_resource path="res://gutbumper-l-ani-sheet-update.png" type="Texture" id=16]
-[ext_resource path="res://bumperScript.gd" type="Script" id=17]
-[ext_resource path="res://Little-bumper.tscn" type="PackedScene" id=18]
-[ext_resource path="res://score_text_banner.png" type="Texture" id=19]
-[ext_resource path="res://Scoreboard.gd" type="Script" id=20]
-[ext_resource path="res://background-square.png" type="Texture" id=22]
-[ext_resource path="res://forground-working.png" type="Texture" id=23]
-[ext_resource path="res://vegetable_text_banner.png" type="Texture" id=24]
-[ext_resource path="res://ballController.gd" type="Script" id=25]
-[ext_resource path="res://wall_phys_mat.tres" type="PhysicsMaterial" id=26]
-[ext_resource path="res://bumper_phys_mat_gut.tres" type="PhysicsMaterial" id=27]
-[ext_resource path="res://vegetaball_hack_font.tres" type="BitmapFont" id=28]
-[ext_resource path="res://speedzone_script.gd" type="Script" id=29]
-[ext_resource path="res://game_manager_script.gd" type="Script" id=30]
-[ext_resource path="res://wurm_shadermaterial.tres" type="Material" id=31]
-[ext_resource path="res://bumper_shadermaterial.tres" type="Material" id=32]
-[ext_resource path="res://bumper_visualshader.tres" type="Shader" id=33]
-[ext_resource path="res://flipper3.png" type="Texture" id=34]
-[ext_resource path="res://flipper3-BG.png" type="Texture" id=35]
+[ext_resource path="res://scripts/plungerScript.gd" type="Script" id=1]
+[ext_resource path="res://scripts/CameraScript.gd" type="Script" id=2]
+[ext_resource path="res://bumper_shadermaterial.tres" type="Material" id=3]
+[ext_resource path="res://score_text_banner.png" type="Texture" id=4]
+[ext_resource path="res://scripts/bumperScript.gd" type="Script" id=5]
+[ext_resource path="res://Little-bumper.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gutbumper-l.png" type="Texture" id=7]
+[ext_resource path="res://background1-tilable.png" type="Texture" id=8]
+[ext_resource path="res://scripts/FlipperScript.gd" type="Script" id=9]
+[ext_resource path="res://scripts/FlipperScript_R.gd" type="Script" id=10]
+[ext_resource path="res://scenes/veggies/Rutabaga.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/speedzone_script.gd" type="Script" id=12]
+[ext_resource path="res://vegetaball_hack_font.tres" type="BitmapFont" id=13]
+[ext_resource path="res://scenes/veggies/Parsnip.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scripts/game_manager_script.gd" type="Script" id=15]
+[ext_resource path="res://wall_phys_mat.tres" type="PhysicsMaterial" id=16]
+[ext_resource path="res://bumper_phys_mat_gut.tres" type="PhysicsMaterial" id=17]
+[ext_resource path="res://flipper3.png" type="Texture" id=18]
+[ext_resource path="res://scenes/veggies/Carrot.tscn" type="PackedScene" id=19]
+[ext_resource path="res://icon.png" type="Texture" id=21]
+[ext_resource path="res://wurm_shadermaterial.tres" type="Material" id=22]
+[ext_resource path="res://background-square.png" type="Texture" id=23]
+[ext_resource path="res://scripts/Scoreboard.gd" type="Script" id=24]
+[ext_resource path="res://gutbumper-l-ani-sheet-update.png" type="Texture" id=25]
+[ext_resource path="res://worm-plunger1.png" type="Texture" id=26]
+[ext_resource path="res://worm-plunger3-frames.png" type="Texture" id=27]
+[ext_resource path="res://flipper3-BG.png" type="Texture" id=28]
+[ext_resource path="res://forground-working.png" type="Texture" id=29]
+[ext_resource path="res://vegetable_text_banner.png" type="Texture" id=30]
+[ext_resource path="res://Octogon-bumper.tscn" type="PackedScene" id=31]
+[ext_resource path="res://bumper_visualshader.tres" type="Shader" id=32]
+[ext_resource path="res://scripts/veggie_spawner.gd" type="Script" id=33]
 
 [sub_resource type="Theme" id=36]
 
@@ -50,30 +50,30 @@ bounce = 0.41
 
 [sub_resource type="ShaderMaterial" id=42]
 resource_local_to_scene = true
-shader = ExtResource( 33 )
+shader = ExtResource( 32 )
 shader_param/u_bumper_brightness = 0.0
 
 [sub_resource type="ShaderMaterial" id=43]
 resource_local_to_scene = true
-shader = ExtResource( 33 )
+shader = ExtResource( 32 )
 shader_param/u_bumper_brightness = 0.0
 
 [sub_resource type="ShaderMaterial" id=44]
 resource_local_to_scene = true
-shader = ExtResource( 33 )
+shader = ExtResource( 32 )
 shader_param/u_bumper_brightness = 0.0
 
 [sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 16 )
+atlas = ExtResource( 25 )
 region = Rect2( 0, 0, 64, 128 )
 
 [sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 16 )
+atlas = ExtResource( 25 )
 region = Rect2( 64, 0, 64, 128 )
 
 [sub_resource type="SpriteFrames" id=17]
 animations = [ {
-"frames": [ SubResource( 15 ), ExtResource( 8 ), SubResource( 16 ), SubResource( 15 ) ],
+"frames": [ SubResource( 15 ), ExtResource( 7 ), SubResource( 16 ), SubResource( 15 ) ],
 "loop": false,
 "name": "default",
 "speed": 5.0
@@ -87,19 +87,19 @@ rough = true
 bounce = 3.84
 
 [sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 12 )
+atlas = ExtResource( 27 )
 region = Rect2( 0, 0, 32, 128 )
 
 [sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 12 )
+atlas = ExtResource( 27 )
 region = Rect2( 32, 0, 32, 128 )
 
 [sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 12 )
+atlas = ExtResource( 27 )
 region = Rect2( 64, 0, 32, 128 )
 
 [sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 12 )
+atlas = ExtResource( 27 )
 region = Rect2( 96, 0, 32, 128 )
 
 [sub_resource type="SpriteFrames" id=13]
@@ -113,13 +113,6 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 35, 59 )
 
-[sub_resource type="CircleShape2D" id=5]
-radius = 13.0384
-
-[sub_resource type="PhysicsMaterial" id=24]
-friction = 0.46
-bounce = 0.1
-
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 414.5, 66.5 )
 
@@ -129,15 +122,15 @@ extents = Vector2( 702, 322 )
 [sub_resource type="RectangleShape2D" id=39]
 extents = Vector2( 33.0938, 127 )
 
-[node name="Node2D" type="Node2D"]
-script = ExtResource( 30 )
+[node name="Main" type="Node"]
+script = ExtResource( 15 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 400, 160 )
 current = true
 zoom = Vector2( 1.5, 1.5 )
 process_mode = 0
-script = ExtResource( 5 )
+script = ExtResource( 2 )
 loc2 = Vector2( 400, -300 )
 speed = 3.14
 
@@ -145,8 +138,8 @@ speed = 3.14
 position = Vector2( -497, -367 )
 scale = Vector2( 1.92817, 1.92817 )
 z_index = 10
-texture = ExtResource( 19 )
-script = ExtResource( 20 )
+texture = ExtResource( 4 )
+script = ExtResource( 24 )
 
 [node name="Label" type="Label" parent="Camera2D/Scoreboard"]
 margin_left = -82.4616
@@ -155,14 +148,14 @@ margin_right = 435.538
 margin_bottom = 93.8225
 rect_scale = Vector2( 0.440895, 0.544239 )
 theme = SubResource( 36 )
-custom_fonts/font = ExtResource( 28 )
+custom_fonts/font = ExtResource( 13 )
 text = "0000000"
 
 [node name="veggie_count" type="Sprite" parent="Camera2D/Scoreboard"]
 position = Vector2( -53.4185, 89.7224 )
 scale = Vector2( 0.264997, 0.264997 )
 z_index = 4
-texture = ExtResource( 24 )
+texture = ExtResource( 30 )
 
 [node name="Label" type="Label" parent="Camera2D/Scoreboard/veggie_count"]
 margin_left = -97.8552
@@ -170,30 +163,30 @@ margin_top = 88.0697
 margin_right = 371.145
 margin_bottom = 166.07
 rect_scale = Vector2( 1.73774, 1.95791 )
-custom_fonts/font = ExtResource( 28 )
+custom_fonts/font = ExtResource( 13 )
 text = "0"
 
 [node name="Background1-tilable" type="Sprite" parent="Camera2D"]
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 15 )
+texture = ExtResource( 8 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Camera2D"]
-texture = ExtResource( 22 )
+texture = ExtResource( 23 )
 polygon = PoolVector2Array( -1366, -360, -1345, 695, -807, 1098, 1223, 1056, 1562, -1089, -1137, -873 )
 
-[node name="Control3" type="Control" parent="Camera2D"]
+[node name="control_right" type="Control" parent="Camera2D"]
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="TouchScreenButton_right" type="TouchScreenButton" parent="Camera2D/Control3"]
+[node name="TouchScreenButton_right" type="TouchScreenButton" parent="Camera2D/control_right"]
 position = Vector2( 557, 112 )
 shape = SubResource( 45 )
 shape_centered = false
 action = "flipper_right"
 visibility_mode = 1
 
-[node name="Control" type="Control" parent="Camera2D"]
+[node name="control_center" type="Control" parent="Camera2D"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -202,17 +195,17 @@ margin_left = -20.0
 margin_top = -40.0
 margin_right = 20.0
 
-[node name="TouchScreenButton_plunger" type="TouchScreenButton" parent="Camera2D/Control"]
+[node name="TouchScreenButton_plunger" type="TouchScreenButton" parent="Camera2D/control_center"]
 position = Vector2( 27, 403 )
 shape = SubResource( 46 )
 shape_centered = false
 action = "plunger"
 visibility_mode = 1
 
-[node name="Control2" type="Control" parent="Camera2D"]
+[node name="control_left" type="Control" parent="Camera2D"]
 anchor_bottom = 1.0
 
-[node name="TouchScreenButton_left" type="TouchScreenButton" parent="Camera2D/Control2"]
+[node name="TouchScreenButton_left" type="TouchScreenButton" parent="Camera2D/control_left"]
 position = Vector2( -563, 146 )
 shape = SubResource( 45 )
 shape_centered = false
@@ -236,8 +229,8 @@ one_way_collision = true
 one_way_collision_margin = 25.8
 
 [node name="Wormgate" type="Sprite" parent="walls/wormgate"]
-material = ExtResource( 31 )
-texture = ExtResource( 11 )
+material = ExtResource( 22 )
+texture = ExtResource( 26 )
 
 [node name="gutter_l" type="StaticBody2D" parent="walls"]
 position = Vector2( 126, 220 )
@@ -247,28 +240,28 @@ scale = Vector2( 0.401401, 0.539904 )
 polygon = PoolVector2Array( 79.7208, 155.583, 179.372, 59.2698, 236.671, 183.366, 221.723, 335.245, 296.462, 474.158, 401.095, 576.028, 585.449, 692.716, 117.09, 496.385, -99.651, 237.079 )
 
 [node name="Polygon2D" type="Polygon2D" parent="walls/gutter_l"]
-texture = ExtResource( 23 )
+texture = ExtResource( 29 )
 polygon = PoolVector2Array( 79.7208, 155.583, 179.372, 59.2698, 236.671, 183.366, 221.723, 335.245, 298.953, 476.011, 401.095, 576.028, 585.449, 692.716, 117.09, 496.385, -99.651, 237.079 )
 
 [node name="gutter_r" type="StaticBody2D" parent="walls"]
 position = Vector2( 874, 0 )
 rotation = -3.14159
 scale = Vector2( 1, -1 )
-physics_material_override = ExtResource( 26 )
+physics_material_override = ExtResource( 16 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/gutter_r"]
 position = Vector2( 0, 1 )
 polygon = PoolVector2Array( 30.9995, 184, 64.9995, 179, 119, 289, 201.999, 405.001, 188.999, 485, 272.999, 562.001, 332, 597, 42.9819, 597.868, 25.1091, 597.922, -3.00153, 599, -3, 427, 2, 395, 6, 334 )
 
 [node name="Polygon2D" type="Polygon2D" parent="walls/gutter_r"]
-texture = ExtResource( 23 )
+texture = ExtResource( 29 )
 polygon = PoolVector2Array( 44.9996, 159, 64.9995, 180, 119, 289, 201.999, 405.001, 188.999, 485, 272.999, 562.001, 342.998, 624.001, 361.998, 781.001, 271.997, 1383, -44.0031, 1198, -9.00195, 769, 1.99854, 584, -3, 518, 2, 395, 6, 334, 30.9995, 188 )
 
 [node name="gutter_r2" type="StaticBody2D" parent="walls"]
 position = Vector2( 810, -577 )
 rotation = -3.14159
 scale = Vector2( 1, -1 )
-physics_material_override = ExtResource( 26 )
+physics_material_override = ExtResource( 16 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/gutter_r2"]
 position = Vector2( 0, 1 )
@@ -278,7 +271,7 @@ polygon = PoolVector2Array( 179.999, 382, 188.999, 485, 178.999, 583, 93.9984, 6
 position = Vector2( -4.68774, 0 )
 scale = Vector2( 1.0248, 1 )
 z_index = 1
-texture = ExtResource( 23 )
+texture = ExtResource( 29 )
 polygon = PoolVector2Array( 179.999, 382, 188.999, 485, 178.999, 583, 93.9984, 649, 42.9819, 597.868, 25.1091, 597.922, 1.99854, 584, -3, 518, 2, 395, 39.9992, 312, 112.999, 296 )
 
 [node name="outer walls" type="StaticBody2D" parent="walls"]
@@ -292,40 +285,31 @@ polygon = PoolVector2Array( 426, -552, 146, -577, 83, -465, 152, -292, 168, -29,
 polygon = PoolVector2Array( 951, 490, 1087, 321, 1036, 232, 952, 414, 953, 275, 943, 103, 943, -135, 899, -373, 837, -448, 464, -557, 403, -757, 1159, -748, 1159, -425, 1124, 612, 875, 707, 875, 602, 891, 653, 950, 649 )
 
 [node name="Polygon2D" type="Polygon2D" parent="walls/outer walls"]
-texture = ExtResource( 23 )
+texture = ExtResource( 29 )
 polygon = PoolVector2Array( 80, -472, 128, -369, 149, -296, 158, -169, 168, -34, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 24, 424, 175, 555, 398, 613, 375, 793, 308, 864, -29, 1318, -187, 933, -242, 607, -305, -432, -287, -687, 481, -740, 568, -542, 157, -568 )
 
 [node name="Polygon2D2" type="Polygon2D" parent="walls/outer walls"]
 position = Vector2( 0, 248.834 )
 scale = Vector2( 1, 0.648042 )
-texture = ExtResource( 23 )
+texture = ExtResource( 29 )
 polygon = PoolVector2Array( 953, 275, 943, 103, 948, -548, 894, -964, 836, -1075.29, 255, -1362, -309, -1366, -316, -1566, 1168, -1548, 1148, -1354, 1159, -425, 1260, 1583.49, 694, 1540.28, 875, 602, 891, 653, 950, 649 )
 
 [node name="Bumpers" type="Node2D" parent="."]
 
-[node name="Octogon-bumper1" parent="Bumpers" instance=ExtResource( 1 )]
+[node name="Octogon-bumper1" parent="Bumpers" instance=ExtResource( 31 )]
 position = Vector2( 751, -17 )
-
-[node name="RigidBody2D" parent="Bumpers/Octogon-bumper1" index="0"]
-bounciness = 100
 
 [node name="AnimatedSprite" parent="Bumpers/Octogon-bumper1/RigidBody2D" index="0"]
 material = SubResource( 42 )
 
-[node name="Octogon-bumper2" parent="Bumpers" instance=ExtResource( 1 )]
+[node name="Octogon-bumper2" parent="Bumpers" instance=ExtResource( 31 )]
 position = Vector2( 276, -188 )
-
-[node name="RigidBody2D" parent="Bumpers/Octogon-bumper2" index="0"]
-bounciness = 100
 
 [node name="AnimatedSprite" parent="Bumpers/Octogon-bumper2/RigidBody2D" index="0"]
 material = SubResource( 43 )
 
-[node name="Octogon-bumper3" parent="Bumpers" instance=ExtResource( 1 )]
+[node name="Octogon-bumper3" parent="Bumpers" instance=ExtResource( 31 )]
 position = Vector2( 201, 304 )
-
-[node name="RigidBody2D" parent="Bumpers/Octogon-bumper3" index="0"]
-bounciness = 100
 
 [node name="AnimatedSprite" parent="Bumpers/Octogon-bumper3/RigidBody2D" index="0"]
 material = SubResource( 44 )
@@ -340,19 +324,19 @@ __meta__ = {
 [node name="RigidBody2D" type="RigidBody2D" parent="Bumpers/Gut-bumper_L"]
 collision_layer = 2
 mode = 3
-physics_material_override = ExtResource( 27 )
+physics_material_override = ExtResource( 17 )
 continuous_cd = 2
 contacts_reported = 10
 contact_monitor = true
 can_sleep = false
-script = ExtResource( 17 )
+script = ExtResource( 5 )
 points = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Gut-bumper_L/RigidBody2D"]
 polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54, 27, 49, -13, -57 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Gut-bumper_L/RigidBody2D"]
-material = ExtResource( 32 )
+material = ExtResource( 3 )
 position = Vector2( 0, -1 )
 frames = SubResource( 17 )
 frame = 3
@@ -368,19 +352,19 @@ __meta__ = {
 [node name="RigidBody2D" type="RigidBody2D" parent="Bumpers/Gut-bumper_L2"]
 collision_layer = 2
 mode = 3
-physics_material_override = ExtResource( 27 )
+physics_material_override = ExtResource( 17 )
 continuous_cd = 2
 contacts_reported = 10
 contact_monitor = true
 can_sleep = false
-script = ExtResource( 17 )
+script = ExtResource( 5 )
 points = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
 polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54, 27, 49, -13, -57 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
-material = ExtResource( 32 )
+material = ExtResource( 3 )
 position = Vector2( -0.705872, -0.29166 )
 frames = SubResource( 17 )
 frame = 3
@@ -390,22 +374,22 @@ playing = true
 process_mode = 0
 wait_time = 0.314
 
-[node name="Little-bumper" parent="Bumpers" instance=ExtResource( 18 )]
+[node name="Little-bumper" parent="Bumpers" instance=ExtResource( 6 )]
 position = Vector2( 169, -559 )
 
-[node name="Little-bumper2" parent="Bumpers" instance=ExtResource( 18 )]
+[node name="Little-bumper2" parent="Bumpers" instance=ExtResource( 6 )]
 position = Vector2( 356, -151 )
 
-[node name="Little-bumper3" parent="Bumpers" instance=ExtResource( 18 )]
+[node name="Little-bumper3" parent="Bumpers" instance=ExtResource( 6 )]
 position = Vector2( 408, -537 )
 
-[node name="Little-bumper4" parent="Bumpers" instance=ExtResource( 18 )]
+[node name="Little-bumper4" parent="Bumpers" instance=ExtResource( 6 )]
 position = Vector2( 93, -465 )
 
-[node name="Little-bumper5" parent="Bumpers" instance=ExtResource( 18 )]
+[node name="Little-bumper5" parent="Bumpers" instance=ExtResource( 6 )]
 position = Vector2( 150, -299 )
 
-[node name="Little-bumper6" parent="Bumpers" instance=ExtResource( 18 )]
+[node name="Little-bumper6" parent="Bumpers" instance=ExtResource( 6 )]
 position = Vector2( 414, -127 )
 
 [node name="Gut-bumper_R" type="Node2D" parent="Bumpers"]
@@ -419,19 +403,19 @@ __meta__ = {
 [node name="RigidBody2D" type="RigidBody2D" parent="Bumpers/Gut-bumper_R"]
 collision_layer = 2
 mode = 3
-physics_material_override = ExtResource( 27 )
+physics_material_override = ExtResource( 17 )
 custom_integrator = true
 contacts_reported = 10
 contact_monitor = true
 can_sleep = false
-script = ExtResource( 17 )
+script = ExtResource( 5 )
 points = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Gut-bumper_R/RigidBody2D"]
 polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54, 27, 49, -13, -57 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Gut-bumper_R/RigidBody2D"]
-material = ExtResource( 32 )
+material = ExtResource( 3 )
 position = Vector2( 0.965942, 0.25882 )
 frames = SubResource( 17 )
 frame = 3
@@ -444,7 +428,7 @@ position = Vector2( 917, 722 )
 collision_layer = 4
 
 [node name="Icon" type="Sprite" parent="Plunger/Body"]
-texture = ExtResource( 7 )
+texture = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plunger/Body"]
 shape = SubResource( 7 )
@@ -467,7 +451,7 @@ physics_material_override = SubResource( 38 )
 can_sleep = false
 linear_damp = 0.0
 angular_damp = 100.0
-script = ExtResource( 6 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -476,14 +460,14 @@ __meta__ = {
 position = Vector2( 0, 150 )
 scale = Vector2( 2.75, 2.75 )
 frames = SubResource( 13 )
-frame = 1
+frame = 3
 speed_scale = 1.5
 playing = true
 
 [node name="Icon2" type="Sprite" parent="Plunger/Head"]
 visible = false
 position = Vector2( -3, 97 )
-texture = ExtResource( 11 )
+texture = ExtResource( 26 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plunger/Head"]
 position = Vector2( -3, 29 )
@@ -501,10 +485,10 @@ __meta__ = {
 
 [node name="Sprite2" type="Sprite" parent="Flippers/Flipper_L_1"]
 position = Vector2( 30.2827, 27.8021 )
-texture = ExtResource( 35 )
+texture = ExtResource( 28 )
 
 [node name="head" type="Node2D" parent="Flippers/Flipper_L_1"]
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 travelLength = 50
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Flippers/Flipper_L_1/head"]
@@ -514,7 +498,7 @@ mode = 3
 
 [node name="Sprite" type="Sprite" parent="Flippers/Flipper_L_1/head/RigidBody2D"]
 position = Vector2( 0, -1 )
-texture = ExtResource( 34 )
+texture = ExtResource( 18 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippers/Flipper_L_1/head/RigidBody2D"]
 polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 11, -20, 21, -37, 21, -46, 17, -50, 12, -53, 4, -54, -6, -51, -14, -45, -20, -37, -23 )
@@ -529,10 +513,10 @@ __meta__ = {
 
 [node name="flipperBG" type="Sprite" parent="Flippers/Flipper_R_1"]
 position = Vector2( 30.2828, 27.8021 )
-texture = ExtResource( 35 )
+texture = ExtResource( 28 )
 
 [node name="head" type="Node2D" parent="Flippers/Flipper_R_1"]
-script = ExtResource( 13 )
+script = ExtResource( 10 )
 travelLength = 50
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Flippers/Flipper_R_1/head"]
@@ -542,7 +526,7 @@ mode = 3
 
 [node name="Sprite" type="Sprite" parent="Flippers/Flipper_R_1/head/RigidBody2D"]
 position = Vector2( 0, -1 )
-texture = ExtResource( 34 )
+texture = ExtResource( 18 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippers/Flipper_R_1/head/RigidBody2D"]
 polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 11, -20, 21, -37, 21, -46, 17, -50, 12, -53, 4, -54, -6, -51, -14, -45, -20, -37, -23 )
@@ -556,13 +540,13 @@ __meta__ = {
 }
 
 [node name="flipperBG" type="Sprite" parent="Flippers/Flipper_R_2"]
-material = ExtResource( 31 )
+material = ExtResource( 22 )
 use_parent_material = true
 position = Vector2( 30.2828, 27.8021 )
-texture = ExtResource( 35 )
+texture = ExtResource( 28 )
 
 [node name="head" type="Node2D" parent="Flippers/Flipper_R_2"]
-script = ExtResource( 13 )
+script = ExtResource( 10 )
 travelLength = 50
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Flippers/Flipper_R_2/head"]
@@ -572,7 +556,7 @@ mode = 3
 
 [node name="Sprite" type="Sprite" parent="Flippers/Flipper_R_2/head/RigidBody2D"]
 position = Vector2( 0, -1 )
-texture = ExtResource( 34 )
+texture = ExtResource( 18 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippers/Flipper_R_2/head/RigidBody2D"]
 polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 11, -20, 21, -37, 21, -46, 17, -50, 12, -53, 4, -54, -6, -51, -14, -45, -20, -37, -23 )
@@ -586,10 +570,10 @@ __meta__ = {
 
 [node name="flipperBG" type="Sprite" parent="Flippers/Flipper_L_2"]
 position = Vector2( 30.2828, 27.8021 )
-texture = ExtResource( 35 )
+texture = ExtResource( 28 )
 
 [node name="head" type="Node2D" parent="Flippers/Flipper_L_2"]
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 travelLength = 50
 
 [node name="RigidBody2D" type="RigidBody2D" parent="Flippers/Flipper_L_2/head"]
@@ -599,73 +583,15 @@ mode = 3
 
 [node name="Sprite" type="Sprite" parent="Flippers/Flipper_L_2/head/RigidBody2D"]
 position = Vector2( 0, -1 )
-texture = ExtResource( 34 )
+texture = ExtResource( 18 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flippers/Flipper_L_2/head/RigidBody2D"]
 polygon = PoolVector2Array( -21, -23, 51, -6, 55, -3, 57, 0, 57, 5, 54, 9, 50, 11, -20, 21, -37, 21, -46, 17, -50, 12, -53, 4, -54, -6, -51, -14, -45, -20, -37, -23 )
 
 [node name="veggies" type="Node2D" parent="."]
-position = Vector2( 1512, 496 )
-
-[node name="Rutabaga" type="RigidBody2D" parent="veggies"]
-position = Vector2( -480, -169 )
-collision_layer = 7
-mass = 0.11
-can_sleep = false
-linear_damp = 0.0
-angular_damp = 0.0
-applied_force = Vector2( 0, 1 )
-script = ExtResource( 25 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="veggies/Rutabaga"]
-polygon = PoolVector2Array( -3.84613, -4.61539, -16.923, 3.07692, -16.923, 16.1538, 0.769287, 13.8461 )
-
-[node name="Rutabaga" type="Sprite" parent="veggies/Rutabaga"]
-texture = ExtResource( 3 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="veggies/Rutabaga"]
-position = Vector2( -14.6154, 13.8461 )
-shape = SubResource( 5 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="veggies/Rutabaga"]
-position = Vector2( 0, 10 )
-shape = SubResource( 5 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="veggies/Rutabaga"]
-position = Vector2( -11, 4 )
-shape = SubResource( 5 )
-
-[node name="Parsnip" type="RigidBody2D" parent="veggies"]
-position = Vector2( -503, -114 )
-collision_layer = 7
-physics_material_override = SubResource( 24 )
-linear_damp = 0.0
-script = ExtResource( 25 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="veggies/Parsnip"]
-polygon = PoolVector2Array( 9, -5, 9, 4, 5, 8, -2, 8, -10, 18, -13, 18, -23, 28, -27, 30, -30, 28, -26, 22, -25, 19, -20, 15, -20, 11, -15, 5, -8, -2, -8, -8, -1, -12, 5, -12 )
-
-[node name="Parsnip_sprite" type="Sprite" parent="veggies/Parsnip"]
-texture = ExtResource( 2 )
-
-[node name="Carrot" type="RigidBody2D" parent="veggies"]
-position = Vector2( -598, -284 )
-collision_layer = 7
-mass = 0.5
-continuous_cd = 1
-contacts_reported = 10
-contact_monitor = true
-can_sleep = false
-linear_damp = 0.0
-angular_damp = 0.0
-applied_force = Vector2( 0, 10 )
-script = ExtResource( 25 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="veggies/Carrot"]
-polygon = PoolVector2Array( 10, -3, 9, 5, 5, 9, 0, 13, -10, 20, -19, 26, -23, 28, -27, 30, -30, 28, -26, 22, -25, 19, -23, 14, -20, 11, -15, 5, -11, -2, -7, -7, -1, -10, 4, -9 )
-
-[node name="Carrot_sprite" type="Sprite" parent="veggies/Carrot"]
-texture = ExtResource( 4 )
+position = Vector2( 904, 360 )
+script = ExtResource( 33 )
+veggie_types = [ ExtResource( 19 ), ExtResource( 14 ), ExtResource( 11 ) ]
 
 [node name="killzone" type="Area2D" parent="."]
 position = Vector2( 435, 621 )
@@ -691,7 +617,7 @@ shape = SubResource( 37 )
 gravity_point = true
 gravity = 200.0
 linear_damp = 0.022
-script = ExtResource( 29 )
+script = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="speedzone"]
 position = Vector2( 900.094, 276 )

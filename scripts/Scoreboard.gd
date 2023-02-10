@@ -5,15 +5,17 @@ signal game_over
 # var a = 2
 # var b = "text"
 export var score = 0
-onready var veggies = get_node("/root/Node2D/veggies").get_child_count()
+# onready var veggies = get_node("/root/Main/veggies").get_child_count()
+var veggies
 var textbox
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	print_debug(veggies)
 	textbox = $Label
-	$veggie_count/Label.text = String(veggies)
+	
 	pass # Replace with function body.
 
 func _on_add_score(points):
@@ -25,7 +27,7 @@ func _veggie_update(veg):
 	print_debug("updating veg count plus ", veg)
 	veggies += veg
 	
-	$veggie_count/Label.text = String(veggies)
+	# $veggie_count/Label.text = String(veggies)
 
 
 
@@ -34,7 +36,7 @@ func _process(_delta):
 	if score <0: 
 		score = 0
 	textbox.text = String(score)
-	
+	$veggie_count/Label.text = String(veggies)
 	pass
 
 
