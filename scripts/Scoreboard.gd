@@ -5,6 +5,7 @@ extends Sprite
 # var a = 2
 # var b = "text"
 export var score = 0
+var high_score = 0
 # onready var veggies = get_node("/root/Main/veggies").get_child_count()
 var veggie_count
 var textbox
@@ -32,11 +33,14 @@ func _veggie_update(veg):
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _physics_process(_delta):
+	if score > high_score:
+		high_score = score
 	if score <0: 
 		score = 0
 	textbox.text = String(score)
 	$veggie_count/Label.text = String(veggie_count)
+	$high_score/Label.text = String(high_score)
 	pass
 
 
