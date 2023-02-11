@@ -34,8 +34,9 @@ func spawn_veggie():
 		var veg_index = randi() % veggie_count-1
 		var veg = veggie_list.pop_at(veg_index).instance()
 		# veg.position = self.position
+		veg.rotation = randf()*TAU
 		
-		print_debug("spawning" + veg.name + " at " + String(veg.position))
+		print_debug("spawning" + veg.name + " at " + String(veg.position) + " and " + String(veg.rotation) + " radians")
 		add_child(veg)
 	
 	pass

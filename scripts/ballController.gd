@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 # signal hit
 
 
@@ -15,7 +15,7 @@ func _ready():
 	# killzone = get_node("/root/Main/killzone")
 	# scoreboard = get_node("/root/Main/Camera2D/Scoreboard")
 	# scoreboard._veggie_update(1)
-	# rigidBody = $VeggieBody2D
+
 
 	pass # Replace with function body.
 
@@ -30,6 +30,13 @@ func _physics_process(_delta):
 	pass
 
 func _integrate_forces(_state):
+	pass
+
+func tilt(tilt_force):
+	var vel = get_linear_velocity()
+	vel += Vector2(rand_range(-1,1),rand_range(-1,1))*tilt_force*1
+
+	self.set_deferred("linear_velocity",vel)
 	pass
 
 # func _on_RigidBody2D_body_entered(body):

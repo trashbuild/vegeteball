@@ -10,11 +10,12 @@ var endRotation
 export var travelLength = 90
 export var flipSpeed = 2
 export var mirrored = false
-
+var main
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	main = get_node("/root/Main")
 	flipSpeed *= 360
 	# startRotation = get_rotation_degrees()
 	endRotation = startRotation - travelLength
@@ -27,7 +28,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if Input.is_action_pressed("flipper_left"):
+	if Input.is_action_pressed("flipper_left") && !main.table_is_tilted:
 		# add_torque(10)
 		if rotation_degrees >= endRotation:
 			rotation_degrees -= flipSpeed * delta

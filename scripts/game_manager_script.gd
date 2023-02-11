@@ -4,6 +4,11 @@ signal game_over
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+export var tilt_strength = 150
+export var tilt_tolerance = 450
+var tilt_force = 0
+export var table_is_tilted = false
+
 export var veggie_count = 5
 var new_vegetaball_ready = false
 var game_over = false
@@ -16,16 +21,27 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(_delta):
+func _physics_process(delta):
+	
+	tilt_force = lerp(tilt_force,0,delta*.25)
+	if tilt_force >= tilt_tolerance && !table_is_tilted:
+		table_is_tilted = true
+		$Camera2D/control_center/TILT.visible = true
+		$Camera2D/control_center/TILT/TILT_Label/AnimationPlayer.play("TILT_blink")
+		print_debug("TILT")
 	if Input.is_action_just_pressed("restart"):
 		start_game()
 	if Input.is_action_just_pressed("tilt"):
-		print_debug("TILT")
-		#TODO: figure out how THAT's gonna work...
+		tilt_force+=tilt_strength
+		for i in $veggies.get_children():
+			i.tilt(tilt_strength)
+		print_debug(tilt_force)
 	if Input.is_action_pressed("plunger"):
 		
 		if new_vegetaball_ready == true:
 			new_vegetaball_ready = false
+			$Camera2D/control_center/TILT.visible = false
+			table_is_tilted = false
 			$veggies.spawn_veggie()
 			pass
 		if game_over:
@@ -44,6 +60,7 @@ func _on_speedzone_body_entered(body:Node):
 
 
 func start_game():
+	$Camera2D/control_center/TILT.visible = false
 	for i in $veggies.get_children():
 		i.queue_free()
 	$Camera2D/Scoreboard.veggie_count = veggie_count
@@ -60,6 +77,7 @@ func start_game():
 func _on_killzone_body_entered(body:Node):
 	if body.get_parent().name == "veggies":
 		$Camera2D/Scoreboard._veggie_update(-1)
+		table_is_tilted = false
 		new_vegetaball_ready = true
 	if $Camera2D/Scoreboard.veggie_count <= 0:
 		self.emit_signal("game_over")
