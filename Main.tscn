@@ -123,7 +123,6 @@ extents = Vector2( 33.0938, 127 )
 
 [node name="Main" type="Node"]
 script = ExtResource( 15 )
-veggie_count = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 400, 160 )
