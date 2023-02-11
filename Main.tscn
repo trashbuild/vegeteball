@@ -1,0 +1,554 @@
+[gd_scene load_steps=54 format=2]
+
+[ext_resource path="res://scripts/plungerScript.gd" type="Script" id=1]
+[ext_resource path="res://scripts/CameraScript.gd" type="Script" id=2]
+[ext_resource path="res://bumper_shadermaterial.tres" type="Material" id=3]
+[ext_resource path="res://art/sprites/score_text_banner.png" type="Texture" id=4]
+[ext_resource path="res://scripts/bumperScript.gd" type="Script" id=5]
+[ext_resource path="res://scenes/prefabs/Little-bumper.tscn" type="PackedScene" id=6]
+[ext_resource path="res://art/sprites/gutbumper-l.png" type="Texture" id=7]
+[ext_resource path="res://art/sprites/background1-tilable.png" type="Texture" id=8]
+[ext_resource path="res://scenes/veggies/Rutabaga.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scripts/speedzone_script.gd" type="Script" id=12]
+[ext_resource path="res://fonts/vegetaball_hack_font.tres" type="BitmapFont" id=13]
+[ext_resource path="res://scenes/veggies/Parsnip.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scripts/game_manager_script.gd" type="Script" id=15]
+[ext_resource path="res://wall_phys_mat.tres" type="PhysicsMaterial" id=16]
+[ext_resource path="res://bumper_phys_mat_gut.tres" type="PhysicsMaterial" id=17]
+[ext_resource path="res://scenes/veggies/Carrot.tscn" type="PackedScene" id=19]
+[ext_resource path="res://art/sprites/high_score_text_banner.png" type="Texture" id=20]
+[ext_resource path="res://icon.png" type="Texture" id=21]
+[ext_resource path="res://wurm_shadermaterial.tres" type="Material" id=22]
+[ext_resource path="res://art/sprites/background-square.png" type="Texture" id=23]
+[ext_resource path="res://scripts/Scoreboard.gd" type="Script" id=24]
+[ext_resource path="res://art/sprites/gutbumper-spritesheet.png" type="Texture" id=25]
+[ext_resource path="res://art/sprites/worm-gate.png" type="Texture" id=26]
+[ext_resource path="res://art/sprites/worm-plunger-spritesheet.png" type="Texture" id=27]
+[ext_resource path="res://art/sprites/forground-working.png" type="Texture" id=29]
+[ext_resource path="res://art/sprites/vegetable_text_banner.png" type="Texture" id=30]
+[ext_resource path="res://scenes/prefabs/Octogon-bumper.tscn" type="PackedScene" id=31]
+[ext_resource path="res://shaders/bumper_visualshader.tres" type="Shader" id=32]
+[ext_resource path="res://scripts/veggie_spawner.gd" type="Script" id=33]
+[ext_resource path="res://scenes/prefabs/Flipper_L.tscn" type="PackedScene" id=34]
+[ext_resource path="res://scenes/prefabs/Flipper_R.tscn" type="PackedScene" id=35]
+
+[sub_resource type="Theme" id=36]
+
+[sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 200, 300 )
+
+[sub_resource type="RectangleShape2D" id=46]
+extents = Vector2( 200, 200 )
+
+[sub_resource type="RectangleShape2D" id=40]
+extents = Vector2( 126.39, 13.5171 )
+
+[sub_resource type="PhysicsMaterial" id=22]
+friction = 0.3
+bounce = 0.41
+
+[sub_resource type="ShaderMaterial" id=42]
+resource_local_to_scene = true
+shader = ExtResource( 32 )
+shader_param/u_bumper_brightness = 0.0
+
+[sub_resource type="ShaderMaterial" id=43]
+resource_local_to_scene = true
+shader = ExtResource( 32 )
+shader_param/u_bumper_brightness = 0.0
+
+[sub_resource type="ShaderMaterial" id=44]
+resource_local_to_scene = true
+shader = ExtResource( 32 )
+shader_param/u_bumper_brightness = 0.0
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 25 )
+region = Rect2( 0, 0, 64, 128 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 25 )
+region = Rect2( 64, 0, 64, 128 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 15 ), ExtResource( 7 ), SubResource( 16 ), SubResource( 15 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 30, 30 )
+
+[sub_resource type="PhysicsMaterial" id=38]
+rough = true
+bounce = 3.84
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 27 )
+region = Rect2( 0, 0, 32, 128 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 27 )
+region = Rect2( 32, 0, 32, 128 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 27 )
+region = Rect2( 64, 0, 32, 128 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 27 )
+region = Rect2( 96, 0, 32, 128 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 35, 59 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 331, 180.5 )
+
+[sub_resource type="RectangleShape2D" id=37]
+extents = Vector2( 702, 322 )
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 33.0938, 127 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 15 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 400, 160 )
+current = true
+zoom = Vector2( 1.5, 1.5 )
+process_mode = 0
+script = ExtResource( 2 )
+loc2 = Vector2( 400, -300 )
+speed = 3.14
+
+[node name="Scoreboard" type="Sprite" parent="Camera2D"]
+position = Vector2( -497, -367 )
+scale = Vector2( 1.92817, 1.92817 )
+z_index = 10
+texture = ExtResource( 4 )
+script = ExtResource( 24 )
+
+[node name="Label" type="Label" parent="Camera2D/Scoreboard"]
+margin_left = -82.4616
+margin_top = 36.8225
+margin_right = 435.538
+margin_bottom = 93.8225
+rect_scale = Vector2( 0.440895, 0.544239 )
+theme = SubResource( 36 )
+custom_fonts/font = ExtResource( 13 )
+text = "0000000"
+
+[node name="veggie_count" type="Sprite" parent="Camera2D/Scoreboard"]
+position = Vector2( -53.4185, 89.7224 )
+scale = Vector2( 0.264997, 0.264997 )
+z_index = 4
+texture = ExtResource( 30 )
+
+[node name="Label" type="Label" parent="Camera2D/Scoreboard/veggie_count"]
+margin_left = -97.8552
+margin_top = 88.0697
+margin_right = 371.145
+margin_bottom = 166.07
+rect_scale = Vector2( 1.73774, 1.95791 )
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="high_score" type="Sprite" parent="Camera2D/Scoreboard"]
+position = Vector2( -45.1205, -36.8225 )
+scale = Vector2( 0.264997, 0.264997 )
+z_index = 4
+texture = ExtResource( 20 )
+
+[node name="Label" type="Label" parent="Camera2D/Scoreboard/high_score"]
+margin_left = -97.8552
+margin_top = 41.0992
+margin_right = 371.145
+margin_bottom = 119.099
+rect_scale = Vector2( 0.855684, 0.964098 )
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="Background1-tilable" type="Sprite" parent="Camera2D"]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 8 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Camera2D"]
+texture = ExtResource( 23 )
+polygon = PoolVector2Array( -1366, -360, -1345, 695, -807, 1098, 1223, 1056, 1562, -1089, -1137, -873 )
+
+[node name="control_right" type="Control" parent="Camera2D"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TouchScreenButton_right" type="TouchScreenButton" parent="Camera2D/control_right"]
+position = Vector2( 557, 112 )
+shape = SubResource( 45 )
+shape_centered = false
+action = "flipper_right"
+visibility_mode = 1
+
+[node name="control_center" type="Control" parent="Camera2D"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -40.0
+margin_right = 20.0
+
+[node name="TouchScreenButton_plunger" type="TouchScreenButton" parent="Camera2D/control_center"]
+position = Vector2( 27, 403 )
+shape = SubResource( 46 )
+shape_centered = false
+action = "plunger"
+visibility_mode = 1
+
+[node name="control_left" type="Control" parent="Camera2D"]
+anchor_bottom = 1.0
+
+[node name="TouchScreenButton_left" type="TouchScreenButton" parent="Camera2D/control_left"]
+position = Vector2( -563, 146 )
+shape = SubResource( 45 )
+shape_centered = false
+action = "flipper_left"
+visibility_mode = 1
+
+[node name="walls" type="Node2D" parent="."]
+
+[node name="wormgate" type="StaticBody2D" parent="walls"]
+position = Vector2( 909, 104 )
+rotation = 3.93211
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/wormgate"]
+position = Vector2( 4.8147, 1.75385 )
+rotation = 1.55571
+shape = SubResource( 40 )
+one_way_collision = true
+one_way_collision_margin = 25.8
+
+[node name="Wormgate" type="Sprite" parent="walls/wormgate"]
+material = ExtResource( 22 )
+texture = ExtResource( 26 )
+
+[node name="gutter_l" type="StaticBody2D" parent="walls"]
+position = Vector2( 126, 220 )
+scale = Vector2( 0.401401, 0.539904 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/gutter_l"]
+polygon = PoolVector2Array( 79.7208, 155.583, 179.372, 59.2698, 236.671, 183.366, 221.723, 335.245, 296.462, 474.158, 401.095, 576.028, 585.449, 692.716, 117.09, 496.385, -99.651, 237.079 )
+
+[node name="Polygon2D" type="Polygon2D" parent="walls/gutter_l"]
+texture = ExtResource( 29 )
+polygon = PoolVector2Array( 79.7208, 155.583, 179.372, 59.2698, 236.671, 183.366, 221.723, 335.245, 298.953, 476.011, 401.095, 576.028, 585.449, 692.716, 117.09, 496.385, -99.651, 237.079 )
+
+[node name="gutter_r" type="StaticBody2D" parent="walls"]
+position = Vector2( 874, 0 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+physics_material_override = ExtResource( 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/gutter_r"]
+position = Vector2( 0, 1 )
+polygon = PoolVector2Array( 30.9995, 184, 64.9995, 179, 119, 289, 201.999, 405.001, 188.999, 485, 272.999, 562.001, 332, 597, 42.9819, 597.868, 25.1091, 597.922, -3.00153, 599, -3, 427, 2, 395, 6, 334 )
+
+[node name="Polygon2D" type="Polygon2D" parent="walls/gutter_r"]
+texture = ExtResource( 29 )
+polygon = PoolVector2Array( 44.9996, 159, 64.9995, 180, 119, 289, 201.999, 405.001, 188.999, 485, 272.999, 562.001, 342.998, 624.001, 361.998, 781.001, 271.997, 1383, -44.0031, 1198, -9.00195, 769, 1.99854, 584, -3, 518, 2, 395, 6, 334, 30.9995, 188 )
+
+[node name="gutter_r2" type="StaticBody2D" parent="walls"]
+position = Vector2( 810, -577 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+physics_material_override = ExtResource( 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/gutter_r2"]
+position = Vector2( 0, 1 )
+polygon = PoolVector2Array( 179.999, 382, 188.999, 485, 178.999, 583, 93.9984, 649, 42.9819, 597.868, 25.1091, 597.922, 1.99854, 584, -3, 518, 2, 395, 39.9992, 312, 112.999, 296 )
+
+[node name="Polygon2D" type="Polygon2D" parent="walls/gutter_r2"]
+position = Vector2( -4.68774, 0 )
+scale = Vector2( 1.0248, 1 )
+z_index = 1
+texture = ExtResource( 29 )
+polygon = PoolVector2Array( 179.999, 382, 188.999, 485, 178.999, 583, 93.9984, 649, 42.9819, 597.868, 25.1091, 597.922, 1.99854, 584, -3, 518, 2, 395, 39.9992, 312, 112.999, 296 )
+
+[node name="outer walls" type="StaticBody2D" parent="walls"]
+z_index = 1
+physics_material_override = SubResource( 22 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/outer walls"]
+polygon = PoolVector2Array( 426, -552, 146, -577, 83, -465, 152, -292, 168, -29, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 24, 424, 175, 555, 398, 641, -242, 607, -305, -432, -303, -764, 548, -750 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="walls/outer walls"]
+polygon = PoolVector2Array( 952, 414, 953, 275, 943, 103, 943, -135, 899, -373, 837, -448, 464, -557, 403, -757, 1159, -748, 1159, -425, 1157, 719, 875, 707, 875, 602, 891, 653, 950, 649 )
+
+[node name="Polygon2D" type="Polygon2D" parent="walls/outer walls"]
+texture = ExtResource( 29 )
+polygon = PoolVector2Array( 80, -472, 128, -369, 149, -296, 158, -169, 168, -34, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 24, 424, 175, 555, 398, 613, 375, 793, 308, 864, -29, 1318, -187, 933, -242, 607, -305, -432, -287, -687, 481, -740, 568, -542, 157, -568 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="walls/outer walls"]
+position = Vector2( 0, 248.834 )
+scale = Vector2( 1, 0.648042 )
+texture = ExtResource( 29 )
+polygon = PoolVector2Array( 943, 103, 948, -548, 894, -964, 836, -1075.29, 255, -1362, -309, -1366, -316, -1566, 1168, -1548, 1148, -1354, 1159, -425, 1260, 1583.49, 694, 1540.28, 875, 543.431, 949, 543.431 )
+
+[node name="Bumpers" type="Node2D" parent="."]
+
+[node name="Octogon-bumper1" parent="Bumpers" instance=ExtResource( 31 )]
+position = Vector2( 751, -17 )
+
+[node name="AnimatedSprite" parent="Bumpers/Octogon-bumper1/RigidBody2D" index="0"]
+material = SubResource( 42 )
+
+[node name="Octogon-bumper2" parent="Bumpers" instance=ExtResource( 31 )]
+position = Vector2( 276, -188 )
+
+[node name="AnimatedSprite" parent="Bumpers/Octogon-bumper2/RigidBody2D" index="0"]
+material = SubResource( 43 )
+
+[node name="Octogon-bumper3" parent="Bumpers" instance=ExtResource( 31 )]
+position = Vector2( 201, 304 )
+
+[node name="AnimatedSprite" parent="Bumpers/Octogon-bumper3/RigidBody2D" index="0"]
+material = SubResource( 44 )
+
+[node name="Gut-bumper_L" type="Node2D" parent="Bumpers"]
+position = Vector2( 319, 443 )
+rotation = -0.261799
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Bumpers/Gut-bumper_L"]
+collision_layer = 2
+mode = 3
+physics_material_override = ExtResource( 17 )
+continuous_cd = 2
+contacts_reported = 10
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 5 )
+points = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Gut-bumper_L/RigidBody2D"]
+polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54, 27, 49, -13, -57 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Gut-bumper_L/RigidBody2D"]
+material = ExtResource( 3 )
+position = Vector2( 0, -1 )
+frames = SubResource( 17 )
+frame = 3
+playing = true
+
+[node name="Gut-bumper_L2" type="Node2D" parent="Bumpers"]
+position = Vector2( 91, 92 )
+rotation = 0.787143
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Bumpers/Gut-bumper_L2"]
+collision_layer = 2
+mode = 3
+physics_material_override = ExtResource( 17 )
+continuous_cd = 2
+contacts_reported = 10
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 5 )
+points = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
+polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54, 27, 49, -13, -57 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
+material = ExtResource( 3 )
+position = Vector2( -0.705872, -0.29166 )
+frames = SubResource( 17 )
+frame = 3
+playing = true
+
+[node name="Timer" type="Timer" parent="Bumpers/Gut-bumper_L2/RigidBody2D"]
+process_mode = 0
+wait_time = 0.314
+
+[node name="Little-bumper" parent="Bumpers" instance=ExtResource( 6 )]
+position = Vector2( 169, -559 )
+
+[node name="Little-bumper2" parent="Bumpers" instance=ExtResource( 6 )]
+position = Vector2( 356, -151 )
+
+[node name="Little-bumper3" parent="Bumpers" instance=ExtResource( 6 )]
+position = Vector2( 408, -537 )
+
+[node name="Little-bumper4" parent="Bumpers" instance=ExtResource( 6 )]
+position = Vector2( 93, -465 )
+
+[node name="Little-bumper5" parent="Bumpers" instance=ExtResource( 6 )]
+position = Vector2( 150, -299 )
+
+[node name="Little-bumper6" parent="Bumpers" instance=ExtResource( 6 )]
+position = Vector2( 414, -127 )
+
+[node name="Gut-bumper_R" type="Node2D" parent="Bumpers"]
+position = Vector2( 589, 446 )
+rotation = 0.261799
+scale = Vector2( -1, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Bumpers/Gut-bumper_R"]
+collision_layer = 2
+mode = 3
+physics_material_override = ExtResource( 17 )
+custom_integrator = true
+contacts_reported = 10
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 5 )
+points = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bumpers/Gut-bumper_R/RigidBody2D"]
+polygon = PoolVector2Array( -19, -62, -29, -52, -29, 18, 14, 60, 20, 61, 28, 54, 27, 49, -13, -57 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Bumpers/Gut-bumper_R/RigidBody2D"]
+material = ExtResource( 3 )
+position = Vector2( 0.965942, 0.25882 )
+frames = SubResource( 17 )
+frame = 3
+playing = true
+
+[node name="Plunger" type="Node2D" parent="."]
+position = Vector2( 917, 722 )
+
+[node name="Body" type="StaticBody2D" parent="Plunger"]
+collision_layer = 4
+
+[node name="Icon" type="Sprite" parent="Plunger/Body"]
+texture = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plunger/Body"]
+shape = SubResource( 7 )
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="Plunger/Body"]
+node_a = NodePath("../../Head")
+node_b = NodePath("..")
+bias = 0.9
+disable_collision = false
+length = 180.0
+rest_length = 200.0
+stiffness = 64.0
+damping = 0.66
+
+[node name="Head" type="RigidBody2D" parent="Plunger"]
+position = Vector2( 0, -260 )
+collision_layer = 4
+mode = 2
+physics_material_override = SubResource( 38 )
+can_sleep = false
+linear_damp = 0.0
+angular_damp = 100.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+launch_strength_cap = 1000
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Plunger/Head"]
+position = Vector2( 0, 150 )
+scale = Vector2( 2.75, 2.75 )
+frames = SubResource( 13 )
+frame = 3
+speed_scale = 1.5
+playing = true
+
+[node name="Icon2" type="Sprite" parent="Plunger/Head"]
+visible = false
+position = Vector2( -3, 97 )
+texture = ExtResource( 26 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plunger/Head"]
+position = Vector2( -3, 29 )
+shape = SubResource( 8 )
+
+[node name="Flippers" type="Node2D" parent="."]
+position = Vector2( 223, 493 )
+
+[node name="Flipper_L_1" parent="Flippers" instance=ExtResource( 34 )]
+position = Vector2( 128, 12 )
+
+[node name="Flipper_R_1" parent="Flippers" instance=ExtResource( 35 )]
+position = Vector2( 344, 11 )
+
+[node name="Flipper_R_2" parent="Flippers" instance=ExtResource( 35 )]
+position = Vector2( 379, -679 )
+rotation = -0.951105
+
+[node name="Flipper_L_2" parent="Flippers" instance=ExtResource( 34 )]
+position = Vector2( -159, -266 )
+rotation = 1.54462
+
+[node name="veggies" type="Node2D" parent="."]
+position = Vector2( 904, 360 )
+script = ExtResource( 33 )
+veggie_types = [ ExtResource( 19 ), ExtResource( 14 ), ExtResource( 11 ) ]
+
+[node name="killzone" type="Area2D" parent="."]
+position = Vector2( 436, 621 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2( 15, 213.5 )
+shape = SubResource( 21 )
+
+[node name="camera_pan_up_zone" type="Area2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camera_pan_up_zone"]
+position = Vector2( 441, -428 )
+shape = SubResource( 37 )
+
+[node name="speedzone" type="Area2D" parent="."]
+gravity_point = true
+gravity = 200.0
+linear_damp = 0.022
+script = ExtResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="speedzone"]
+position = Vector2( 900.094, 276 )
+shape = SubResource( 39 )
+
+[connection signal="body_entered" from="Bumpers/Gut-bumper_L/RigidBody2D" to="Bumpers/Gut-bumper_L/RigidBody2D" method="_on_RigidBody2D_body_entered"]
+[connection signal="body_entered" from="Bumpers/Gut-bumper_L2/RigidBody2D" to="Bumpers/Gut-bumper_L2/RigidBody2D" method="_on_RigidBody2D_body_entered"]
+[connection signal="body_entered" from="Bumpers/Gut-bumper_R/RigidBody2D" to="Bumpers/Gut-bumper_R/RigidBody2D" method="_on_RigidBody2D_body_entered"]
+[connection signal="body_entered" from="killzone" to="." method="_on_killzone_body_entered"]
+[connection signal="body_entered" from="camera_pan_up_zone" to="Camera2D" method="_on_camera_pan_up_zone_body_entered"]
+[connection signal="body_exited" from="camera_pan_up_zone" to="Camera2D" method="_on_camera_pan_up_zone_body_exited"]
+[connection signal="body_entered" from="speedzone" to="." method="_on_speedzone_body_entered"]
+
+[editable path="Bumpers/Octogon-bumper1"]
+[editable path="Bumpers/Octogon-bumper2"]
+[editable path="Bumpers/Octogon-bumper3"]
+[editable path="Flippers/Flipper_L_1"]

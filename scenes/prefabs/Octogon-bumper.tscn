@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/bumperScript.gd" type="Script" id=1]
+[ext_resource path="res://bumper_shadermaterial.tres" type="Material" id=2]
+[ext_resource path="res://bumper_phys_mat_big.tres" type="PhysicsMaterial" id=3]
+[ext_resource path="res://Octogon-bumper_anim.tres" type="SpriteFrames" id=4]
+
+[node name="Octogon-bumper1" type="Node2D"]
+position = Vector2( 1, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+mode = 3
+physics_material_override = ExtResource( 3 )
+continuous_cd = 2
+contacts_reported = 10
+contact_monitor = true
+can_sleep = false
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="RigidBody2D"]
+material = ExtResource( 2 )
+z_index = 2
+frames = ExtResource( 4 )
+frame = 2
+playing = true
+offset = Vector2( 0.159637, 0 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+visible = false
+polygon = PoolVector2Array( 26, -64, 64, -26, 65, 26, 26, 65, -26, 64, -64, 26, -64, -26, -26, -65 )
+
+[connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_RigidBody2D_body_entered"]

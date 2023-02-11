@@ -25,7 +25,7 @@ RIGHT ARROW: right flipper
 SHIFT: both
 
 this is an accurate and comprehensive look at what worms do in their extremely limited free time"
-run/main_scene="res://Node2D.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -103,4 +103,3 @@ common/physics_interpolation=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"

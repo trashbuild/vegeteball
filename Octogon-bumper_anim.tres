@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=4 format=2]
 
-[ext_resource path="res://octogon-bumper2-update.png" type="Texture" id=1]
+[ext_resource path="res://art/sprites/octogon-bumper-spritesheet.png" type="Texture" id=1]
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 1 )
