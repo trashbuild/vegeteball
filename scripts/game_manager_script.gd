@@ -61,6 +61,7 @@ func _on_speedzone_body_entered(body:Node):
 
 func start_game():
 	$Camera2D/control_center/TILT.visible = false
+	$Camera2D/control_center/GameOverTextBanner.visible = false
 	for i in $veggies.get_children():
 		i.queue_free()
 	$Camera2D/Scoreboard.veggie_count = veggie_count
@@ -81,11 +82,12 @@ func _on_killzone_body_entered(body:Node):
 		new_vegetaball_ready = true
 	if $Camera2D/Scoreboard.veggie_count <= 0:
 		self.emit_signal("game_over")
+		
 		print_debug("game over")
 	pass # Replace with function body.
 
 
 func _on_Main_game_over(): 
 	game_over = true
-
+	$Camera2D/control_center/GameOverTextBanner.visible = true
 	pass # Replace with function body.
