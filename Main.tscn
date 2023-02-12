@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://scripts/plungerScript.gd" type="Script" id=1]
 [ext_resource path="res://scripts/CameraScript.gd" type="Script" id=2]
@@ -67,6 +67,11 @@ friction = 0.3
 bounce = 0.41
 
 [sub_resource type="ShaderMaterial" id=42]
+resource_local_to_scene = true
+shader = ExtResource( 32 )
+shader_param/u_bumper_brightness = 0.0
+
+[sub_resource type="ShaderMaterial" id=66]
 resource_local_to_scene = true
 shader = ExtResource( 32 )
 shader_param/u_bumper_brightness = 0.0
@@ -683,7 +688,7 @@ material = SubResource( 42 )
 position = Vector2( 777, 329 )
 
 [node name="AnimatedSprite" parent="Bumpers/Octogon-bumper7/RigidBody2D" index="0"]
-material = SubResource( 42 )
+material = SubResource( 66 )
 
 [node name="Octogon-bumper2" parent="Bumpers" instance=ExtResource( 31 )]
 position = Vector2( 731, -239 )
@@ -862,7 +867,7 @@ launch_strength_cap = 1000
 position = Vector2( 0, 150 )
 scale = Vector2( 2.75, 2.75 )
 frames = SubResource( 62 )
-frame = 1
+frame = 2
 speed_scale = 1.5
 playing = true
 
