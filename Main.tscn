@@ -455,7 +455,7 @@ extents = Vector2( 331, 180.5 )
 extents = Vector2( 702, 322 )
 
 [sub_resource type="RectangleShape2D" id=39]
-extents = Vector2( 33.0938, 127 )
+extents = Vector2( 41, 136.5 )
 
 [node name="Main" type="Node"]
 script = ExtResource( 15 )
@@ -862,7 +862,7 @@ launch_strength_cap = 1000
 position = Vector2( 0, 150 )
 scale = Vector2( 2.75, 2.75 )
 frames = SubResource( 62 )
-frame = 3
+frame = 1
 speed_scale = 1.5
 playing = true
 
@@ -922,9 +922,10 @@ gravity_point = true
 gravity = 200.0
 linear_damp = 0.022
 script = ExtResource( 12 )
+boost_multiplier = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="speedzone"]
-position = Vector2( 900.094, 276 )
+position = Vector2( 907, 266.5 )
 shape = SubResource( 39 )
 
 [connection signal="game_over" from="." to="." method="_on_Main_game_over"]
