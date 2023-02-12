@@ -456,7 +456,7 @@ extents = Vector2( 331, 180.5 )
 extents = Vector2( 702, 322 )
 
 [sub_resource type="RectangleShape2D" id=39]
-extents = Vector2( 33.0938, 127 )
+extents = Vector2( 41, 136.5 )
 
 [node name="Main" type="Node"]
 script = ExtResource( 15 )
@@ -614,11 +614,11 @@ position = Vector2( 126, 220 )
 scale = Vector2( 0.401401, 0.539904 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/gutter_l"]
-polygon = PoolVector2Array( 79.7208, 155.583, 179.372, 59.2698, 236.671, 183.366, 221.723, 335.245, 303.935, 498.237, 450.921, 583.437, 346.287, 577.881, 199.302, 540.837, 117.09, 496.385, -99.651, 237.079 )
+polygon = PoolVector2Array( 79.7208, 155.583, 179.372, 59.2698, 236.671, 183.366, 221.723, 335.245, 303.935, 498.237, 450.921, 583.437, 346.287, 577.881, 206.776, 518.611, 117.09, 433.41, -19.9302, 244.488 )
 
 [node name="Polygon2D" type="Polygon2D" parent="walls/gutter_l"]
 texture = ExtResource( 29 )
-polygon = PoolVector2Array( 79.7208, 155.583, 179.372, 59.2698, 236.671, 183.366, 221.723, 335.245, 303.935, 498.237, 443.447, 581.585, 351.27, 576.028, 196.811, 540.837, 117.09, 496.385, -99.651, 237.079 )
+polygon = PoolVector2Array( 79.7208, 155.583, 179.372, 59.2698, 236.671, 183.366, 221.723, 335.245, 303.935, 498.237, 443.447, 581.585, 351.27, 576.028, 211.758, 520.463, 119.581, 437.115, -14.9477, 240.784 )
 
 [node name="gutter_r" type="StaticBody2D" parent="walls"]
 position = Vector2( 874, 0 )
@@ -628,11 +628,11 @@ physics_material_override = ExtResource( 16 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/gutter_r"]
 position = Vector2( 0, 1 )
-polygon = PoolVector2Array( 30.9995, 184, 64.9995, 179, 119, 289, 201.999, 405.001, 188.999, 485, 267.999, 569.001, 338.998, 622.001, 42.9819, 597.868, 25.1091, 597.922, -3.00153, 599, -3, 427, 2, 395, 6, 334 )
+polygon = PoolVector2Array( 30.9995, 184, 64.9995, 179, 69.999, 400, 149.999, 357, 188.999, 485, 267.999, 569.001, 338.998, 622.001, 42.9819, 597.868, 25.1091, 597.922, -3.00153, 599, -3, 427, 2, 395, 6, 334 )
 
 [node name="Polygon2D" type="Polygon2D" parent="walls/gutter_r"]
 texture = ExtResource( 29 )
-polygon = PoolVector2Array( 44.9996, 159, 64.9995, 180, 119, 289, 201.999, 405.001, 188.999, 485, 272.999, 562.001, 342.998, 624.001, 361.998, 781.001, 271.997, 1383, -44.0031, 1198, -9.00195, 769, 1.99854, 584, -3, 518, 2, 395, 6, 334, 30.9995, 188 )
+polygon = PoolVector2Array( 44.9996, 159, 64.9995, 180, 73.999, 397, 153.999, 360, 176.061, 438.794, 188.999, 485, 272.999, 562.001, 342.998, 624.001, 361.998, 781.001, 271.997, 1383, -44.0031, 1198, -9.00195, 769, 1.99854, 584, -3, 518, 2, 395, 6, 334, 30.9995, 188 )
 
 [node name="gutter_r2" type="StaticBody2D" parent="walls"]
 position = Vector2( 810, -577 )
@@ -656,20 +656,20 @@ z_index = 1
 physics_material_override = SubResource( 22 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls/outer walls"]
-polygon = PoolVector2Array( 426, -552, 146, -577, 83, -465, 100, -437, 117, -402, 133, -361, 152, -292, 168, -29, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 24, 424, 175, 555, 314, 625, 386, 654, -242, 607, -305, -432, -303, -764, 548, -750 )
+polygon = PoolVector2Array( 423, -636, 148, -578, 83, -465, 100, -437, 117, -402, 133, -361, 152, -292, 168, -29, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 43, 394, 175, 555, 314, 625, 386, 654, -242, 607, -305, -432, -303, -764, 548, -750 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="walls/outer walls"]
-polygon = PoolVector2Array( 952, 414, 953, 275, 943, 103, 943, -135, 926, -279, 918, -337, 902, -380, 875, -420, 837, -448, 701, -503, 579, -538, 426, -554, 403, -757, 1159, -748, 1159, -425, 1157, 719, 875, 707, 875, 602, 891, 653, 950, 649 )
+polygon = PoolVector2Array( 952, 414, 953, 275, 943, 103, 943, -135, 926, -279, 918, -337, 902, -380, 875, -420, 827, -490, 716, -564, 595, -612, 433, -635, 403, -757, 1159, -748, 1159, -425, 1157, 719, 875, 707, 875, 602, 891, 653, 950, 649 )
 
 [node name="Polygon2D" type="Polygon2D" parent="walls/outer walls"]
 texture = ExtResource( 29 )
-polygon = PoolVector2Array( 80, -472, 102, -433, 115, -406, 133, -364, 149, -296, 158, -169, 168, -34, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 24, 424, 175, 555, 259, 584, 333, 597, 396, 636, 375, 793, 308, 864, -29, 1318, -187, 933, -242, 607, -305, -432, -287, -687, 481, -740, 495, -550, 182, -575, 164, -576, 151, -566 )
+polygon = PoolVector2Array( 80, -472, 102, -433, 115, -406, 133, -364, 149, -296, 158, -169, 168, -34, 125, 31, 103, 32, 55, 79, 56, 154, 38, 204, 45, 396, 175, 555, 259, 584, 333, 597, 396, 636, 375, 793, 308, 864, -29, 1318, -187, 933, -242, 607, -305, -432, -287, -687, 481, -740, 421, -636, 251, -598, 171, -592, 151, -566 )
 
 [node name="Polygon2D2" type="Polygon2D" parent="walls/outer walls"]
 position = Vector2( 0, 248.834 )
 scale = Vector2( 1, 0.648042 )
 texture = ExtResource( 29 )
-polygon = PoolVector2Array( 943, 103, 948, -548, 926, -819.135, 918, -905.549, 901, -971.903, 876, -1032.08, 836, -1075.29, 700, -1160.16, 580, -1214.17, 425, -1237.32, 255, -1362, -309, -1366, -316, -1566, 1168, -1548, 1148, -1354, 1159, -425, 1260, 1583.49, 694, 1540.28, 875, 543.431, 949, 543.431 )
+polygon = PoolVector2Array( 943, 103, 948, -548, 926, -819.135, 918, -905.549, 901, -971.903, 876, -1032.08, 820, -1149.36, 721, -1248.12, 598, -1326.82, 426, -1368.48, 255, -1362, -309, -1366, -316, -1566, 1168, -1548, 1148, -1354, 1159, -425, 1260, 1583.49, 694, 1540.28, 875, 543.431, 949, 543.431 )
 
 [node name="Bumpers" type="Node2D" parent="."]
 
@@ -677,6 +677,12 @@ polygon = PoolVector2Array( 943, 103, 948, -548, 926, -819.135, 918, -905.549, 9
 position = Vector2( 700, 16 )
 
 [node name="AnimatedSprite" parent="Bumpers/Octogon-bumper1/RigidBody2D" index="0"]
+material = SubResource( 42 )
+
+[node name="Octogon-bumper7" parent="Bumpers" instance=ExtResource( 31 )]
+position = Vector2( 777, 329 )
+
+[node name="AnimatedSprite" parent="Bumpers/Octogon-bumper7/RigidBody2D" index="0"]
 material = SubResource( 42 )
 
 [node name="Octogon-bumper2" parent="Bumpers" instance=ExtResource( 31 )]
@@ -698,7 +704,7 @@ position = Vector2( 85, -428 )
 material = SubResource( 49 )
 
 [node name="Octogon-bumper5" parent="Bumpers" instance=ExtResource( 31 )]
-position = Vector2( 459, -539 )
+position = Vector2( 439, -476 )
 
 [node name="AnimatedSprite" parent="Bumpers/Octogon-bumper5/RigidBody2D" index="0"]
 material = SubResource( 50 )
@@ -770,22 +776,22 @@ process_mode = 0
 wait_time = 0.314
 
 [node name="Little-bumper" parent="Bumpers" instance=ExtResource( 6 )]
-position = Vector2( 204, -191 )
+position = Vector2( 162, -181 )
 
 [node name="Little-bumper2" parent="Bumpers" instance=ExtResource( 6 )]
-position = Vector2( 293, -165 )
+position = Vector2( 170, -34 )
 
 [node name="Little-bumper3" parent="Bumpers" instance=ExtResource( 6 )]
-position = Vector2( 570, -370 )
+position = Vector2( 312, -27 )
 
 [node name="Little-bumper4" parent="Bumpers" instance=ExtResource( 6 )]
-position = Vector2( 314, -319 )
+position = Vector2( 301, -298 )
 
 [node name="Little-bumper5" parent="Bumpers" instance=ExtResource( 6 )]
 position = Vector2( 150, -299 )
 
 [node name="Little-bumper6" parent="Bumpers" instance=ExtResource( 6 )]
-position = Vector2( 389, -138 )
+position = Vector2( 309, -165 )
 
 [node name="Gut-bumper_R" type="Node2D" parent="Bumpers"]
 position = Vector2( 589, 446 )
@@ -916,9 +922,10 @@ gravity_point = true
 gravity = 200.0
 linear_damp = 0.022
 script = ExtResource( 12 )
+boost_multiplier = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="speedzone"]
-position = Vector2( 900.094, 276 )
+position = Vector2( 907, 266.5 )
 shape = SubResource( 39 )
 
 [connection signal="game_over" from="." to="." method="_on_Main_game_over"]
@@ -931,6 +938,7 @@ shape = SubResource( 39 )
 [connection signal="body_entered" from="speedzone" to="." method="_on_speedzone_body_entered"]
 
 [editable path="Bumpers/Octogon-bumper1"]
+[editable path="Bumpers/Octogon-bumper7"]
 [editable path="Bumpers/Octogon-bumper2"]
 [editable path="Bumpers/Octogon-bumper3"]
 [editable path="Bumpers/Octogon-bumper4"]
